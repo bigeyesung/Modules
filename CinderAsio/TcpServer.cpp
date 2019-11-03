@@ -46,3 +46,10 @@ void TcpServer::cancel()
 			if ( mErrorEventHandler != nullptr ) {
 				mErrorEventHandler( err.message(), 0 );
 			}
+        } else {
+			if ( mCancelEventHandler != nullptr ) {
+				mCancelEventHandler();
+			}
+		}
+	}
+}
