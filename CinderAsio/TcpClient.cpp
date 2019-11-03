@@ -71,3 +71,8 @@ void TcpClient::onResolve( const asio::error_code& err,
 							 shared_from_this(), session, std::placeholders::_1/*error*/ ) ) );
 	}
 }
+
+void TcpClient::connectConnectEventHandler( const std::function<void( TcpSessionRef )>& eventHandler )
+{
+	mConnectEventHandler = eventHandler;
+}
