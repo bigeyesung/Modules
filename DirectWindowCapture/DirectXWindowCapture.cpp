@@ -81,3 +81,16 @@ void DirectXWindowCapture::FindAllWindowTitle(vector<string>& WindowTitle)
 			WindowTitle.push_back(tempS);
 		}
 	}
+
+    for (int i = 0; i < WindowTitle.size(); i++)
+	{
+		istringstream in(WindowTitle[i]);
+		string tempS, tempS1("");
+		while (in >> tempS)
+		{
+			tempS1 = tempS1 + tempS + "_";
+		}
+		tempS1.pop_back();
+		WindowTitle[i] = tempS1;
+	}
+}
