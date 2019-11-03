@@ -69,3 +69,8 @@ void DataBreakDown::FloatDataToString(const vector<float> & inData, string & out
 	out.precision(6);
 	out << inData.size() << ' ';
 	for (int i = 0; i < inData.size(); i++)
+    {
+		out << inData[i] << ' ';
+	}
+	outData = out.str();
+}
