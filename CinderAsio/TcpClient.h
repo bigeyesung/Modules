@@ -24,3 +24,9 @@ public:
     void	connectConnectEventHandler( const std::function<void( TcpSessionRef )>& eventHandler );
 
 	TcpResolverRef	getResolver() const;
+
+protected:
+	TcpClient( asio::io_service& io );
+	
+	virtual void	onConnect( TcpSessionRef session, const asio::error_code& err );
+	virtual void	onResolve( const asio::error_code& err, asio::ip::tcp::resolver::iterator iter );
