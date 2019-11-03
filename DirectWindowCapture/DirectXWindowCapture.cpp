@@ -128,3 +128,16 @@ bool DirectXWindowCapture::CheckWindowValid(HWND hWnd)
 	{
 		CloakedVal = 0;
 	}
+    NotValid = CloakedVal ? true : false;
+	if (!NotValid)
+	{
+
+		DWORD styles, ex_styles;
+		RECT  rect;
+		if (IsIconic(hWnd))
+			return false;
+		GetClientRect(hWnd, &rect);
+		styles = (DWORD)GetWindowLongPtr(hWnd, GWL_STYLE);
+		ex_styles = (DWORD)GetWindowLongPtr(hWnd, GWL_EXSTYLE);
+		if (ex_styles & WS_EX_TOOLWINDOW)
+			return false;
