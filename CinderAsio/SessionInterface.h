@@ -22,3 +22,10 @@ public:
 		connectReadEventHandler( std::bind( eventHandler, eventHandlerObject, std::placeholders::_1 ) );
 	}
     void					connectReadEventHandler( const std::function<void( ci::BufferRef )>& eventHandler );
+
+    template< typename T, typename Y >
+	inline void				connectReadCompleteEventHandler( T eventHandler, Y* eventHandlerObject )
+	{
+		connectReadCompleteEventHandler( std::bind( eventHandler, eventHandlerObject ) );
+	}
+	void					connectReadCompleteEventHandler( const std::function<void ()>& eventHandler );
