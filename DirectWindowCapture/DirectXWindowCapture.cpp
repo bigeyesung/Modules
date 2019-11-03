@@ -252,3 +252,19 @@ void DirectXWindowCapture::UpdateHDC()
 		memset(&m_MouseInfo.Ci, 0, sizeof(CURSORINFO));
 		m_MouseInfo.Ci.cbSize = sizeof(CURSORINFO);
 		m_MouseInfo.CursorCaptured = GetCursorInfo(&m_MouseInfo.Ci);
+        if (m_MouseInfo.CursorCaptured)
+		{
+			m_MouseInfo.WinPos.x = 0;
+			m_MouseInfo.WinPos.y = 0;
+			if (m_Hwnd)
+				ClientToScreen(m_Hwnd, &m_MouseInfo.WinPos);
+			// Hotspot �I�����y�СA�Ϊ����P�ɡA�I���y�Ф��P
+			m_MouseInfo.FinalPos.x = m_MouseInfo.Ci.ptScreenPos.x - m_MouseInfo.WinPos.x;//�����y��
+			m_MouseInfo.FinalPos.y = m_MouseInfo.Ci.ptScreenPos.y - m_MouseInfo.WinPos.y;
+			//�P�_�O�_�b������?
+			DrawIcon(D3D_hdc, m_MouseInfo.FinalPos.x, m_MouseInfo.FinalPos.y, m_MouseInfo.CursorIcon);
+		}
+		else
+		{
+			console() << "Stop Draw Mouse" << endl;
+		}
