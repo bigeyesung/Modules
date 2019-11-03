@@ -40,3 +40,9 @@ void SessionInterface::onRead( const asio::error_code& err, size_t bytesTransfer
 			if ( mReadCompleteEventHandler != nullptr ) {
 				mReadCompleteEventHandler();
 			}
+            } else {
+			if ( mErrorEventHandler != nullptr ) {
+				mErrorEventHandler( err.message(), bytesTransferred );
+			}
+		}
+	}
