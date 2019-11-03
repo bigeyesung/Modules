@@ -35,3 +35,7 @@ public:
 	~DirectXWindowCapture();
 
 	HRESULT init();
+
+    void FindAllWindowTitle(vector<string>& WindowTitle);
+	bool SelectWindow(int TitleIndex);
+	void InitGLDX_ShareTexture(int BindIndex = 0);
