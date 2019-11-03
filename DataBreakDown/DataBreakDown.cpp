@@ -84,3 +84,11 @@ void DataBreakDown::StringToFloatData(const string & inData, vector<float> & out
 	int Num = 0;
 	in >> Num;
 	if (Num < 0)
+        outData.resize(1);
+	else
+		outData.resize(Num);
+	for (int i = 0; i <Num; i++)
+	{
+		in >> outData[i];
+	}
+	EndString = "";
