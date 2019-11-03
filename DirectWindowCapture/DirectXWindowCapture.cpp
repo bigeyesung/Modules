@@ -60,8 +60,24 @@ void DirectXWindowCapture::FindAllWindowTitle(vector<string>& WindowTitle)
 {
 	if (!AllWindow_HWND.empty())
 		AllWindow_HWND.clear();
-	//��Ҧ� window HWND
+	// window HWND
 	EnumWindows(FindWindowsHandle, reinterpret_cast<LPARAM>(&AllWindow_HWND));
 	const DWORD TITLE_SIZE = 512;
 	WCHAR f_WindowTitle[TITLE_SIZE];
 	WCHAR f_WindowClass[TITLE_SIZE];
+    if (!WindowTitle.empty())
+		WindowTitle.clear();
+	vector<string> s_WindowClass;
+
+	for (int i = 0; i < AllWindow_HWND.size(); i++)
+	{
+		if (AllWindow_HWND[i] != NULL)
+		{
+			GetWindowTextW(AllWindow_HWND[i], f_WindowTitle, TITLE_SIZE); //Windows Title
+			GetClassNameW(AllWindow_HWND[i], f_WindowClass, TITLE_SIZE);
+			wstring title(&f_WindowTitle[0]);
+			string tempS;
+			tempS.assign(title.begin(), title.end());
+			WindowTitle.push_back(tempS);
+		}
+	}
