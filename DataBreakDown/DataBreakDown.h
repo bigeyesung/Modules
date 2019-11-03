@@ -18,3 +18,7 @@ public:
 
 	void StringToFloatData(const string & inData, vector<float>& outData, string& EndString);
 	
+    //string
+	void PointArrayToString(const vector<Point2f> & inData, string & outData);	
+	void PointArrayToString(const vector<vector<Point2f>> & inData, string & outData);
+	void StringToPointArray(const string & inData, vector<Point2f> & outData);
