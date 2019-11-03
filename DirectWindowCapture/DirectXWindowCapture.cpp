@@ -309,3 +309,22 @@ void DirectXWindowCapture::InitGLDX_ShareTexture(int BindIndex)
 	int UpdateWidth = rc.right - rc.left;
 	int UpdateHigh = rc.bottom - rc.top;
 	CreatTexture(m_D3dDevice, UpdateWidth, UpdateHigh);
+    // Register the shared DX texture with OGL
+	if (wglext_NV_DX_interop)
+	{
+		// Acquire a handle to the D3D device for use in OGL
+		if(!m_DX11Device_HANDLE)
+			m_DX11Device_HANDLE = wglDXOpenDeviceNV(m_D3dDevice);
+
+		if (m_DX11Device_HANDLE)
+		{
+			////openGL texture
+			//if (GL_Texture) 
+			//{
+			//	glDeleteTextures(1, &GL_Texture);
+			//	GL_Texture = 0;
+			//}
+			if (GL_Texture == 0)//opengl 
+				glGenTextures(1, &GL_Texture);
+			//glGenTextures(1, &g_GLTexture);
+#if SHARE_TEXTURE
