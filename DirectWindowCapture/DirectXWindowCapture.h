@@ -39,3 +39,10 @@ public:
     void FindAllWindowTitle(vector<string>& WindowTitle);
 	bool SelectWindow(int TitleIndex);
 	void InitGLDX_ShareTexture(int BindIndex = 0);
+    s_MouseInfo GetMouseInfo() { return m_MouseInfo; }
+	//
+	HWND GetCaptureHwnd() { return m_Hwnd; }
+	vec2 GetWindowRect() { return vec2(TextureWidth, TextureHigh); }
+	void UpdateHDC();
+	void LockDX();
+	void UnLockDX();
