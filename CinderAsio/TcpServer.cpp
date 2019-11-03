@@ -63,3 +63,8 @@ void TcpServer::connectAcceptEventHandler( const std::function<void( TcpSessionR
 {
 	mAcceptEventHandler = eventHandler;
 }
+
+void TcpServer::connectCancelEventHandler( const std::function<void ()>& eventHandler )
+{
+	mCancelEventHandler = eventHandler;
+}
