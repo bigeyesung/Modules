@@ -27,3 +27,11 @@ typedef struct
 	POINT			WinPos;
 	POINT			FinalPos;
 }s_MouseInfo;
+
+class DirectXWindowCapture
+{
+public:
+	DirectXWindowCapture();
+	~DirectXWindowCapture();
+
+	HRESULT init();
