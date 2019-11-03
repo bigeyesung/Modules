@@ -37,3 +37,10 @@ public:
 		connectWriteEventHandler( std::bind( eventHandler, eventHandlerObject, std::placeholders::_1 ) );
 	}
 	void					connectWriteEventHandler( const std::function<void( size_t )>& eventHandler );
+
+    template< typename T, typename Y >
+	inline void				connectWriteToEventHandler(T eventHandler, Y* eventHandlerObject)
+	{
+		connectWriteToEventHandler(std::bind(eventHandler, eventHandlerObject, std::placeholders::_1));
+	}
+	void					connectWriteToEventHandler(const std::function<void(size_t)>& eventHandler);
