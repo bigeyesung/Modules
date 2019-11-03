@@ -111,3 +111,5 @@ void DataBreakDown::PointArrayToString(const vector<Point2f>& inData, string & o
 		out << tempP2f.x << ' ';
 		out << tempP2f.y << ' ';
 	}
+    outData = out.str();
+}
