@@ -23,3 +23,11 @@ TcpServer::~TcpServer()
 	mCancelEventHandler = nullptr;
 	cancel();
 }
+
+void TcpServer::accept( uint16_t port )
+{
+	if ( mAcceptor ) {
+		mAcceptor.reset();
+	}
+	mAcceptor				= TcpAcceptorRef( new tcp::acceptor( mIoService, tcp::endpoint( tcp::v4(), port) ) );
+	TcpSessionRef session	= TcpSession::create( mIoService );
