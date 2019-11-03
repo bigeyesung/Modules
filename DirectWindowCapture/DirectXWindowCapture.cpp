@@ -295,3 +295,17 @@ bool DirectXWindowCapture::SelectWindow(int TitleIndex)
 		return false;
 	}
 }
+
+void DirectXWindowCapture::InitGLDX_ShareTexture(int BindIndex)
+{
+	// When a sender size changes, the new texture has to be re-registered
+	if (m_DX11Device_HANDLE != NULL &&  m_GLSharedTexture_HANDLE != NULL) {
+		wglDXUnregisterObjectNV(m_DX11Device_HANDLE, m_GLSharedTexture_HANDLE);
+		m_GLSharedTexture_HANDLE = NULL;
+	}
+	//D3D texture create
+	RECT rc;
+	GetClientRect(m_Hwnd, &rc);
+	int UpdateWidth = rc.right - rc.left;
+	int UpdateHigh = rc.bottom - rc.top;
+	CreatTexture(m_D3dDevice, UpdateWidth, UpdateHigh);
