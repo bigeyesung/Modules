@@ -78,3 +78,11 @@ void SessionInterface::onWrite( const asio::error_code& err, size_t bytesTransfe
 		}
 	}
 }
+
+void SessionInterface::onWriteTo(const asio::error_code& err, size_t bytesTransferred)
+{
+	if (err) {
+		if (mErrorEventHandler != nullptr) {
+			mErrorEventHandler(err.message(), bytesTransferred);
+		}
+	}
