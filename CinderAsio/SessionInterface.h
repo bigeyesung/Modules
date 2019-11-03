@@ -52,3 +52,7 @@ public:
 	virtual void			onRead( const asio::error_code& err, size_t bytesTransferred );
 	virtual void			onWrite( const asio::error_code& err, size_t bytesTransferred );
 	virtual void			onWriteTo(const asio::error_code& err, size_t bytesTransferred);
+
+    size_t					mBufferSize;
+	asio::streambuf			mRequest;
+	asio::streambuf			mResponse;
