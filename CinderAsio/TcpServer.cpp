@@ -53,3 +53,8 @@ void TcpServer::cancel()
 		}
 	}
 }
+
+TcpAcceptorRef TcpServer::getAcceptor() const
+{
+	return mAcceptor;
+}
