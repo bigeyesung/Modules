@@ -13,3 +13,8 @@
 #include "../Modules/Mesh/MeshModule.h"
 
 #include <dwmapi.h>
+#pragma comment(lib, "dwmapi.lib")
+
+using namespace ci;
+using namespace ci::app;
+using namespace std;
