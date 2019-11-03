@@ -46,3 +46,15 @@ void SessionInterface::onRead( const asio::error_code& err, size_t bytesTransfer
 			}
 		}
 	}
+    else
+	{
+		if ( mReadEventHandler != nullptr ) 
+		{
+			char* data = new char[ bytesTransferred + 1 ]();
+			data[ bytesTransferred ] = 0;
+			mResponse.commit( bytesTransferred );
+			istream stream( &mResponse );
+			stream.read( data, bytesTransferred );
+			mReadEventHandler( Buffer::create( data, bytesTransferred ) );
+			delete [] data;
+		}
