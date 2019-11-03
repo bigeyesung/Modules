@@ -148,3 +148,7 @@ bool DirectXWindowCapture::CheckWindowValid(HWND hWnd)
 	}
 	return !NotValid;
 }
+
+HRESULT DirectXWindowCapture::initDevice()
+{
+	HRESULT hr = S_OK;
