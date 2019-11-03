@@ -47,3 +47,8 @@ void TcpClient::onConnect( TcpSessionRef session, const asio::error_code& err )
 			mErrorEventHandler( err.message(), 0 );
 		}
 	} else {
+        if ( mConnectEventHandler != nullptr ) {
+			mConnectEventHandler( session );
+		}
+	}
+}
