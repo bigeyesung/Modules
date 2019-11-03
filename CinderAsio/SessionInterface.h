@@ -29,3 +29,11 @@ public:
 		connectReadCompleteEventHandler( std::bind( eventHandler, eventHandlerObject ) );
 	}
 	void					connectReadCompleteEventHandler( const std::function<void ()>& eventHandler );
+
+
+    template< typename T, typename Y >
+	inline void				connectWriteEventHandler( T eventHandler, Y* eventHandlerObject )
+	{
+		connectWriteEventHandler( std::bind( eventHandler, eventHandlerObject, std::placeholders::_1 ) );
+	}
+	void					connectWriteEventHandler( const std::function<void( size_t )>& eventHandler );
