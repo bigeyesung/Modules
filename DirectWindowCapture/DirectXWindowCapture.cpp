@@ -198,3 +198,18 @@ HRESULT DirectXWindowCapture::initDevice()
 
 	return S_OK;
 }
+
+HRESULT DirectXWindowCapture::CreatTexture(ID3D11Device* Device, int width, int high)
+{
+	HRESULT hr = S_FALSE;
+
+	if (width > 0 && high > 0)
+	{
+		if (width != TextureWidth || high != TextureHigh)
+		{
+			TextureWidth = width;
+			TextureHigh = high;
+			//if (DX_Texture) DX_Texture->Release();
+			//if (m_GdiSurface) m_GdiSurface->Release();
+			if (Device) Device->Release();
+			DX_Texture = NULL;
