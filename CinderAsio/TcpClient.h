@@ -30,3 +30,8 @@ protected:
 	
 	virtual void	onConnect( TcpSessionRef session, const asio::error_code& err );
 	virtual void	onResolve( const asio::error_code& err, asio::ip::tcp::resolver::iterator iter );
+
+    TcpResolverRef	mResolver;
+
+	std::function<void( TcpSessionRef )>	mConnectEventHandler;
+};
