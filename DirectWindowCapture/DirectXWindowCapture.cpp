@@ -103,3 +103,12 @@ BOOL DirectXWindowCapture::FindWindowsHandle(HWND hwnd, LPARAM lParam)
 	GetWindowTextW(hwnd, windowTitle, TITLE_SIZE);
 
 	int length = ::GetWindowTextLength(hwnd);
+    wstring title(&windowTitle[0]);
+	if (!IsWindowVisible(hwnd) || length == 0 || title == L"Program Manager")
+	{
+		return TRUE;
+	}
+	if (!CheckWindowValid(hwnd))
+	{
+		return TRUE;
+	}
