@@ -37,3 +37,14 @@ void DataBreakDown::StringToIntData(const string & inData, vector<int> & outData
 		in >> outData[i];
 	}
 }
+
+void DataBreakDown::StringToIntData(const string & inData, vector<int> & outData, string& EndString)
+{
+	//istringstream in(inData);
+	in.str("");
+	in.clear();
+	in.str(inData);
+	int Num = 0;
+	in >> Num;
+	if (Num < 0)
+		outData.resize(1);
