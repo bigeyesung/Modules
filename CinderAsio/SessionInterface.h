@@ -44,3 +44,11 @@ public:
 		connectWriteToEventHandler(std::bind(eventHandler, eventHandlerObject, std::placeholders::_1));
 	}
 	void					connectWriteToEventHandler(const std::function<void(size_t)>& eventHandler);
+
+
+    protected:
+	SessionInterface( asio::io_service& io );
+
+	virtual void			onRead( const asio::error_code& err, size_t bytesTransferred );
+	virtual void			onWrite( const asio::error_code& err, size_t bytesTransferred );
+	virtual void			onWriteTo(const asio::error_code& err, size_t bytesTransferred);
