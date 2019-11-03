@@ -272,3 +272,8 @@ void DirectXWindowCapture::UpdateHDC()
 		m_GdiSurface->ReleaseDC(nullptr);
 	}
 }
+
+void DirectXWindowCapture::LockDX()
+{
+	wglDXLockObjectsNV(m_DX11Device_HANDLE, 1, &m_GLSharedTexture_HANDLE);
+}
