@@ -282,3 +282,16 @@ void DirectXWindowCapture::UnLockDX()
 {
 	wglDXUnlockObjectsNV(m_DX11Device_HANDLE, 1, &m_GLSharedTexture_HANDLE);
 }
+
+bool DirectXWindowCapture::SelectWindow(int TitleIndex)
+{
+	if (0 <= TitleIndex || TitleIndex < AllWindow_HWND.size())
+	{
+		m_Hwnd = AllWindow_HWND[TitleIndex];
+		return true;
+	}
+	else
+    {
+		return false;
+	}
+}
