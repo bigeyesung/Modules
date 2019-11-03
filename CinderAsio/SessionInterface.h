@@ -56,3 +56,6 @@ public:
     size_t					mBufferSize;
 	asio::streambuf			mRequest;
 	asio::streambuf			mResponse;
+
+    std::function<void ()>					mReadCompleteEventHandler;
+	std::function<void( ci::BufferRef )>	mReadEventHandler;
