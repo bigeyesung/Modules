@@ -62,3 +62,10 @@ void DataBreakDown::StringToIntData(const string & inData, vector<int> & outData
 		EndString.erase(0, 1);
 	}
 }
+
+void DataBreakDown::FloatDataToString(const vector<float> & inData, string & outData)
+{
+	ostringstream out;
+	out.precision(6);
+	out << inData.size() << ' ';
+	for (int i = 0; i < inData.size(); i++)
