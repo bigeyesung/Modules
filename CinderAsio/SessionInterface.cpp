@@ -58,3 +58,10 @@ void SessionInterface::onRead( const asio::error_code& err, size_t bytesTransfer
 			mReadEventHandler( Buffer::create( data, bytesTransferred ) );
 			delete [] data;
 		}
+        if ( mReadCompleteEventHandler != nullptr && 
+			mBufferSize > 0 && bytesTransferred < mBufferSize ) {
+			mReadCompleteEventHandler();
+		}
+	}
+	mResponse.consume( mResponse.size() );
+}
