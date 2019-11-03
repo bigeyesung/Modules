@@ -34,3 +34,8 @@ void TcpClient::connect( const string& host, const string& protocol )
     mStrand.wrap( std::bind( &TcpClient::onResolve, shared_from_this(),
 		std::placeholders::_1/*error*/, std::placeholders::_2/*iterator*/ ) ) );
 }
+
+TcpResolverRef TcpClient::getResolver() const
+{
+	return mResolver;
+}
