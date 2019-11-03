@@ -31,3 +31,12 @@ SessionInterface::~SessionInterface()
     mRequest.consume( mRequest.size() );
 	mResponse.consume( mResponse.size() );
 }
+
+void SessionInterface::onRead( const asio::error_code& err, size_t bytesTransferred )
+{
+	if ( err ) 
+	{
+		if ( err == asio::error::eof ) {
+			if ( mReadCompleteEventHandler != nullptr ) {
+				mReadCompleteEventHandler();
+			}
