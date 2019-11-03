@@ -19,3 +19,9 @@ public:
 
 protected:
 	DispatcherInterface( asio::io_service& io );
+
+    asio::io_service&			mIoService;
+	asio::io_service::strand	mStrand;
+
+	std::function<void( std::string, size_t )>	mErrorEventHandler;
+};
