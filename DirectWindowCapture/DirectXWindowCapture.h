@@ -67,3 +67,9 @@ private:
 	ID3D11Texture2D*			DX_Texture;
 
 	IDXGISurface1*				m_GdiSurface;
+
+	HANDLE						m_DX11Device_HANDLE = NULL;
+	HANDLE						m_GLSharedTexture_HANDLE = NULL;
+	//-------------openGL
+
+	GLuint						GL_Texture;
