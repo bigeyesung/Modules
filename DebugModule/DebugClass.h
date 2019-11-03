@@ -16,3 +16,10 @@ public:
 	void CinderConsole(string Massage);
 	void CinderConsoleNextLine(string Massage);
 	void CinderConsoleNextLine(int Massage);
+
+private:
+
+	//bool ShowMassage;
+
+
+};
