@@ -1,0 +1,15 @@
+#pragma once
+
+#define WIN32_LEAN_AND_MEAN
+//DirectX
+//#include <d3d11.h>
+#include <d3d11_1.h>
+#include <string>
+#include <sstream>
+#include "cinder/app/App.h"
+#include "cinder/gl/gl.h"
+#include "glload/wgl_all.h"
+
+#include "../Modules/Mesh/MeshModule.h"
+
+#include <dwmapi.h>
