@@ -15,3 +15,8 @@ TcpClient::TcpClient( asio::io_service& io )
 	: ClientInterface( io ), mConnectEventHandler( nullptr )
 {
 }
+
+TcpClient::~TcpClient()
+{
+	mConnectEventHandler = nullptr;
+}
