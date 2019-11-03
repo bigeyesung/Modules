@@ -113,3 +113,13 @@ void DataBreakDown::PointArrayToString(const vector<Point2f>& inData, string & o
 	}
     outData = out.str();
 }
+
+void DataBreakDown::PointArrayToString(const vector<vector<Point2f>>& inData, string & outData)
+{
+	ostringstream out;
+	out.precision(6);
+	int TotalNum = 0;
+	for (int i = 0; i < inData.size(); i++)
+	{
+		TotalNum += inData[i].size();
+	}
