@@ -20,3 +20,8 @@ TcpClient::~TcpClient()
 {
 	mConnectEventHandler = nullptr;
 }
+
+void TcpClient::connect( const string& host, uint16_t port )
+{
+	connect( host, toString( port ) );
+}
