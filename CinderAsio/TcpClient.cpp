@@ -52,3 +52,12 @@ void TcpClient::onConnect( TcpSessionRef session, const asio::error_code& err )
 		}
 	}
 }
+
+void TcpClient::onResolve( const asio::error_code& err,
+						  tcp::resolver::iterator iter )
+{
+	if ( err ) {
+		if ( mErrorEventHandler != nullptr ) {
+			mErrorEventHandler( err.message(), 0 );
+		}
+	} else {
