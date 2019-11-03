@@ -25,3 +25,9 @@ void TcpClient::connect( const string& host, uint16_t port )
 {
 	connect( host, toString( port ) );
 }
+
+void TcpClient::connect( const string& host, const string& protocol )
+{
+	tcp::resolver::query query( host, protocol );
+	mResolver = TcpResolverRef( new tcp::resolver( mStrand.get_io_service() ) );
+	mResolver->async_resolve( query, 
