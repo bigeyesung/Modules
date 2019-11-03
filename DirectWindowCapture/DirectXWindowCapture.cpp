@@ -26,3 +26,20 @@ DirectXWindowCapture::~DirectXWindowCapture()
 		m_GdiSurface->Release();
 		m_GdiSurface = NULL;
 	}
+    	if (m_D3dDevice)
+	{
+		m_D3dDevice->Release();
+		m_D3dDevice = NULL;
+	}
+	if (m_D3dContext)
+	{
+		m_D3dContext->Release();
+		m_D3dContext = NULL;
+	}
+	if (GL_Texture)
+	{
+		glDeleteTextures(1, &GL_Texture);
+		GL_Texture = 0;
+	}
+
+}
