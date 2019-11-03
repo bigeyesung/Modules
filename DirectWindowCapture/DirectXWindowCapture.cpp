@@ -55,3 +55,13 @@ HRESULT DirectXWindowCapture::init()
 
     return hr;
 }
+
+void DirectXWindowCapture::FindAllWindowTitle(vector<string>& WindowTitle)
+{
+	if (!AllWindow_HWND.empty())
+		AllWindow_HWND.clear();
+	//��Ҧ� window HWND
+	EnumWindows(FindWindowsHandle, reinterpret_cast<LPARAM>(&AllWindow_HWND));
+	const DWORD TITLE_SIZE = 512;
+	WCHAR f_WindowTitle[TITLE_SIZE];
+	WCHAR f_WindowClass[TITLE_SIZE];
