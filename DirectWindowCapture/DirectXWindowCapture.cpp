@@ -94,3 +94,12 @@ void DirectXWindowCapture::FindAllWindowTitle(vector<string>& WindowTitle)
 		WindowTitle[i] = tempS1;
 	}
 }
+
+BOOL DirectXWindowCapture::FindWindowsHandle(HWND hwnd, LPARAM lParam)
+{
+	const DWORD TITLE_SIZE = 512;
+	WCHAR windowTitle[TITLE_SIZE];
+
+	GetWindowTextW(hwnd, windowTitle, TITLE_SIZE);
+
+	int length = ::GetWindowTextLength(hwnd);
