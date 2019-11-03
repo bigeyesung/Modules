@@ -145,3 +145,15 @@ void DataBreakDown::StringToPointArray(const string & inData, vector<Point2f>& o
 	in.str(inData);
 	int Num = 0;
 	in >> Num;
+    if (Num < 0)
+		outData.resize(1);
+	else
+		outData.resize(Num);
+	Point2f tempP2f;
+	for (int i = 0; i < Num; i++)
+	{
+		in >> tempP2f.x;
+		in >> tempP2f.y;
+		outData[i] = tempP2f;
+	}
+}
