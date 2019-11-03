@@ -21,3 +21,4 @@ public:
 	{
 		connectReadEventHandler( std::bind( eventHandler, eventHandlerObject, std::placeholders::_1 ) );
 	}
+    void					connectReadEventHandler( const std::function<void( ci::BufferRef )>& eventHandler );
