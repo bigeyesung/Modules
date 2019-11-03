@@ -107,3 +107,8 @@ void SessionInterface::connectWriteEventHandler( const std::function<void( size_
 {
 	mWriteEventHandler = eventHandler;
 }
+
+void SessionInterface::connectWriteToEventHandler(const std::function<void(size_t)>& eventHandler)
+{
+	mWriteToEventHandler = eventHandler;
+}
