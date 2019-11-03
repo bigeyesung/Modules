@@ -74,3 +74,13 @@ void DataBreakDown::FloatDataToString(const vector<float> & inData, string & out
 	}
 	outData = out.str();
 }
+
+void DataBreakDown::StringToFloatData(const string & inData, vector<float> & outData, string& EndString)
+{
+	//istringstream in(inData);
+	in.str("");
+	in.clear();
+	in.str(inData);
+	int Num = 0;
+	in >> Num;
+	if (Num < 0)
