@@ -59,3 +59,6 @@ public:
 
     std::function<void ()>					mReadCompleteEventHandler;
 	std::function<void( ci::BufferRef )>	mReadEventHandler;
+    std::function<void( size_t )>			mWriteEventHandler;
+	std::function<void(size_t)>				mWriteToEventHandler;
+};
