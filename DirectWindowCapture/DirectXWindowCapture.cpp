@@ -43,3 +43,12 @@ DirectXWindowCapture::~DirectXWindowCapture()
 	}
 
 }
+
+HRESULT DirectXWindowCapture::init()
+{
+	HRESULT hr = S_OK;
+	hr = initDevice();
+	if (FAILED(hr))
+	{
+		return hr;
+	}
