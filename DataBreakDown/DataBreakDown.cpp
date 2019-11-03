@@ -55,3 +55,10 @@ void DataBreakDown::StringToIntData(const string & inData, vector<int> & outData
 		in >> outData[i];
 	}
 	EndString = "";
+    getline(in, EndString);
+	if (EndString != "")
+	{
+		//�h�Ů�
+		EndString.erase(0, 1);
+	}
+}
