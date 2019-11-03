@@ -248,3 +248,7 @@ void DirectXWindowCapture::UpdateHDC()
 
 		m_GdiSurface->GetDC(true, &D3D_hdc);
 		Window_hdc = GetDC(m_Hwnd);
+        BitBlt(D3D_hdc, 0, 0, TextureWidth, TextureHigh, Window_hdc, 0, 0, SRCCOPY);
+		memset(&m_MouseInfo.Ci, 0, sizeof(CURSORINFO));
+		m_MouseInfo.Ci.cbSize = sizeof(CURSORINFO);
+		m_MouseInfo.CursorCaptured = GetCursorInfo(&m_MouseInfo.Ci);
