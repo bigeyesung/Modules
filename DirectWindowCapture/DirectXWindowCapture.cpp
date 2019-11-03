@@ -237,3 +237,14 @@ HRESULT DirectXWindowCapture::CreatTexture(ID3D11Device* Device, int width, int 
 	}
 	return S_FALSE;	
 }
+
+void DirectXWindowCapture::UpdateHDC()
+{
+	if (m_Hwnd)
+	{
+		bool testB = false;
+		HDC D3D_hdc = NULL;
+		HDC Window_hdc = NULL;
+
+		m_GdiSurface->GetDC(true, &D3D_hdc);
+		Window_hdc = GetDC(m_Hwnd);
