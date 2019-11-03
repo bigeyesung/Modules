@@ -95,7 +95,19 @@ void DataBreakDown::StringToFloatData(const string & inData, vector<float> & out
     getline(in, EndString);
 	if (EndString != "")
 	{
-		//�h�Ů�
 		EndString.erase(0, 1);
 	}
 }
+
+void DataBreakDown::PointArrayToString(const vector<Point2f>& inData, string & outData)
+{
+	ostringstream out;
+	out.precision(6);
+	out << inData.size() << ' ';
+	Point2f tempP2f;
+	for (int i = 0; i < inData.size(); i++)
+	{
+		tempP2f = inData[i];
+		out << tempP2f.x << ' ';
+		out << tempP2f.y << ' ';
+	}
