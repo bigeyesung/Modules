@@ -18,3 +18,12 @@
 using namespace ci;
 using namespace ci::app;
 using namespace std;
+
+typedef struct
+{
+	CURSORINFO		Ci;
+	bool			CursorCaptured;
+	HCURSOR			CursorIcon = LoadCursor(NULL, IDC_ARROW);
+	POINT			WinPos;
+	POINT			FinalPos;
+}s_MouseInfo;
