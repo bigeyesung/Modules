@@ -16,3 +16,9 @@ BufferRef SessionInterface::stringToBuffer( string& value )
 {
 	return Buffer::create( &value[ 0 ], value.size() );
 }
+
+SessionInterface::SessionInterface( asio::io_service& io )
+: DispatcherInterface( io ), mBufferSize( 0 ), mReadCompleteEventHandler( nullptr ), 
+mReadEventHandler( nullptr ), mWriteEventHandler( nullptr )
+{
+}
