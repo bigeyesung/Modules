@@ -65,3 +65,11 @@ void SessionInterface::onRead( const asio::error_code& err, size_t bytesTransfer
 	}
 	mResponse.consume( mResponse.size() );
 }
+
+void SessionInterface::onWrite( const asio::error_code& err, size_t bytesTransferred )
+{
+	if ( err ) {
+		if ( mErrorEventHandler != nullptr ) {
+			mErrorEventHandler( err.message(), bytesTransferred );
+		}
+	} else {
