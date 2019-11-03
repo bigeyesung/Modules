@@ -68,3 +68,10 @@ void TcpServer::connectCancelEventHandler( const std::function<void ()>& eventHa
 {
 	mCancelEventHandler = eventHandler;
 }
+
+void TcpServer::onAccept( TcpSessionRef session, const asio::error_code& err )
+{
+	if ( err ) {
+		if ( mErrorEventHandler != nullptr ) {
+			mErrorEventHandler( err.message(), 0 );
+		}
