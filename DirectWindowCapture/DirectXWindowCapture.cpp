@@ -213,3 +213,16 @@ HRESULT DirectXWindowCapture::CreatTexture(ID3D11Device* Device, int width, int 
 			//if (m_GdiSurface) m_GdiSurface->Release();
 			if (Device) Device->Release();
 			DX_Texture = NULL;
+
+            D3D11_TEXTURE2D_DESC TextureDesc;
+			memset(&TextureDesc, 0, sizeof(TextureDesc));
+			TextureDesc.Width = width;
+			TextureDesc.Height = high;
+			TextureDesc.MipLevels = 1;
+			TextureDesc.ArraySize = 1;
+			TextureDesc.Format = DXGI_FORMAT_B8G8R8A8_UNORM;
+			TextureDesc.BindFlags = D3D11_BIND_SHADER_RESOURCE | D3D11_BIND_RENDER_TARGET;
+			TextureDesc.SampleDesc.Count = 1;
+			TextureDesc.CPUAccessFlags = 0;
+			TextureDesc.Usage = D3D11_USAGE_DEFAULT;
+			TextureDesc.MiscFlags = D3D11_RESOURCE_MISC_GDI_COMPATIBLE;
