@@ -277,3 +277,8 @@ void DirectXWindowCapture::LockDX()
 {
 	wglDXLockObjectsNV(m_DX11Device_HANDLE, 1, &m_GLSharedTexture_HANDLE);
 }
+
+void DirectXWindowCapture::UnLockDX()
+{
+	wglDXUnlockObjectsNV(m_DX11Device_HANDLE, 1, &m_GLSharedTexture_HANDLE);
+}
