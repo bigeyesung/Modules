@@ -173,3 +173,28 @@ HRESULT DirectXWindowCapture::initDevice()
 		D3D_FEATURE_LEVEL_10_1,
 		D3D_FEATURE_LEVEL_10_0,
 	};
+
+    UINT numFeatureLevels = ARRAYSIZE(featureLevels);
+
+	D3D_DRIVER_TYPE		g_driverType = D3D_DRIVER_TYPE_NULL;
+	D3D_FEATURE_LEVEL	 g_featureLevel = D3D_FEATURE_LEVEL_11_0;
+
+	for (UINT driverTypeIndex = 0; driverTypeIndex < numDriverTypes; driverTypeIndex++)
+	{
+		g_driverType = driverTypes[driverTypeIndex];
+		hr = D3D11CreateDevice(nullptr, g_driverType, nullptr, createDeviceFlags, featureLevels, numFeatureLevels,
+			D3D11_SDK_VERSION, &m_D3dDevice, &g_featureLevel, &m_D3dContext);
+
+        	if (hr == E_INVALIDARG)
+		{
+			// DirectX 11.0 platforms will not recognize D3D_FEATURE_LEVEL_11_1 so we need to retry without it
+			hr = D3D11CreateDevice(nullptr, g_driverType, nullptr, createDeviceFlags, &featureLevels[1], numFeatureLevels - 1,
+				D3D11_SDK_VERSION, &m_D3dDevice, &g_featureLevel, &m_D3dContext);
+		}
+
+		if (SUCCEEDED(hr))
+			break;
+	}
+
+	return S_OK;
+}
