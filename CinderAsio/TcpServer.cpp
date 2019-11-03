@@ -36,3 +36,13 @@ void TcpServer::accept( uint16_t port )
     mStrand.wrap( std::bind( &TcpServer::onAccept, shared_from_this(),
         session, std::placeholders::_1/*error*/ ) ) );
 }
+
+void TcpServer::cancel()
+{
+	if ( mAcceptor ) {
+		asio::error_code err;
+		mAcceptor->cancel( err );
+		if ( err ) {
+			if ( mErrorEventHandler != nullptr ) {
+				mErrorEventHandler( err.message(), 0 );
+			}
