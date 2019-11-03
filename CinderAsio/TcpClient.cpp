@@ -61,3 +61,13 @@ void TcpClient::onResolve( const asio::error_code& err,
 			mErrorEventHandler( err.message(), 0 );
 		}
 	} else {
+
+        if ( mResolveEventHandler != nullptr ) {
+			mResolveEventHandler();
+		}
+		TcpSessionRef session( new TcpSession( mIoService ) );
+		asio::async_connect( *session->mSocket, iter, 
+							 mStrand.wrap( std::bind( &TcpClient::onConnect,
+							 shared_from_this(), session, std::placeholders::_1/*error*/ ) ) );
+	}
+}
