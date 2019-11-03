@@ -60,3 +60,10 @@ private:
 	vector<HWND> AllWindow_HWND;
 
 	s_MouseInfo m_MouseInfo;
+    //--------------DX11--------------------
+
+	ID3D11Device*				m_D3dDevice;
+	ID3D11DeviceContext*		m_D3dContext;
+	ID3D11Texture2D*			DX_Texture;
+
+	IDXGISurface1*				m_GdiSurface;
