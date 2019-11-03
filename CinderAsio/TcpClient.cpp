@@ -39,3 +39,11 @@ TcpResolverRef TcpClient::getResolver() const
 {
 	return mResolver;
 }
+
+void TcpClient::onConnect( TcpSessionRef session, const asio::error_code& err )
+{
+	if ( err ) {
+		if ( mErrorEventHandler != nullptr ) {
+			mErrorEventHandler( err.message(), 0 );
+		}
+	} else {
