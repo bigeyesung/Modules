@@ -22,3 +22,9 @@ SessionInterface::SessionInterface( asio::io_service& io )
 mReadEventHandler( nullptr ), mWriteEventHandler( nullptr )
 {
 }
+
+SessionInterface::~SessionInterface()
+{
+	mReadCompleteEventHandler	= nullptr;
+	mReadEventHandler			= nullptr;
+	mWriteEventHandler			= nullptr;
