@@ -15,3 +15,9 @@ public:
     virtual void			read() = 0;
 	virtual void			write( const ci::BufferRef& buffer ) = 0;
 	virtual void			writeTo(const ci::BufferRef& buffer) = 0;
+
+	template< typename T, typename Y >
+	inline void				connectReadEventHandler( T eventHandler, Y* eventHandlerObject )
+	{
+		connectReadEventHandler( std::bind( eventHandler, eventHandlerObject, std::placeholders::_1 ) );
+	}
