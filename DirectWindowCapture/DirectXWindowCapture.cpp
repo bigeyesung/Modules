@@ -165,3 +165,11 @@ HRESULT DirectXWindowCapture::initDevice()
 		D3D_DRIVER_TYPE_REFERENCE,
 	};
 	UINT numDriverTypes = ARRAYSIZE(driverTypes);
+
+    D3D_FEATURE_LEVEL featureLevels[] =
+	{
+		D3D_FEATURE_LEVEL_11_1,
+		D3D_FEATURE_LEVEL_11_0,
+		D3D_FEATURE_LEVEL_10_1,
+		D3D_FEATURE_LEVEL_10_0,
+	};
