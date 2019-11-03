@@ -73,3 +73,10 @@ private:
 	//-------------openGL
 
 	GLuint						GL_Texture;
+
+	//test
+	gl::TextureRef	m_Texture;
+	CustomMesh m_CustomMesh;
+
+	gl::GlslProgRef m_ShaderProcess;
+};
