@@ -152,3 +152,8 @@ bool DirectXWindowCapture::CheckWindowValid(HWND hWnd)
 HRESULT DirectXWindowCapture::initDevice()
 {
 	HRESULT hr = S_OK;
+
+    UINT createDeviceFlags = 0;
+#ifdef _DEBUG
+	createDeviceFlags |= D3D11_CREATE_DEVICE_DEBUG;
+#endif
