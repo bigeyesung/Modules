@@ -9,3 +9,8 @@ ClientInterface::~ClientInterface()
 {
 	mResolveEventHandler = nullptr;
 }
+
+void ClientInterface::connectResolveEventHandler( const std::function<void ()>& eventHandler )
+{
+	mResolveEventHandler = eventHandler;
+}
