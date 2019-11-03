@@ -11,3 +11,8 @@ string SessionInterface::bufferToString( const BufferRef& buffer )
 	}
 	return s;
 }
+
+BufferRef SessionInterface::stringToBuffer( string& value )
+{
+	return Buffer::create( &value[ 0 ], value.size() );
+}
