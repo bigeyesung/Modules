@@ -16,3 +16,6 @@ void DataBreakDown::IntDataToString(const vector<int> & inData, string & outData
 	for (int i = 0; i < inData.size(); i++)
 	{
 		out << inData[i] << ' ';
+    }
+	outData = out.str();
+}
