@@ -28,3 +28,12 @@ void DataBreakDown::StringToIntData(const string & inData, vector<int> & outData
 	in.str(inData);
 	int Num = 0;
 	in >> Num;
+    if (Num < 0)
+		outData.resize(1);
+	else
+		outData.resize(Num);
+	for (int i = 0; i <Num; i++)
+	{
+		in >> outData[i];
+	}
+}
