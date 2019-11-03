@@ -345,3 +345,9 @@ void DirectXWindowCapture::InitGLDX_ShareTexture(int BindIndex)
 				GL_TEXTURE_2D,
 				WGL_ACCESS_READ_ONLY_NV);
 #endif
+			//cinder shader  Bind(BindIndex)
+			gl::ScopedActiveTexture ScopedActiveTexture(BindIndex);
+			gl::context()->bindTexture(GL_TEXTURE_2D, GL_Texture);
+		}
+	}
+}
