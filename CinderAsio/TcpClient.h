@@ -20,3 +20,7 @@ public:
 	{
 		connectConnectEventHandler( std::bind( eventHandler, eventHandlerObject, std::placeholders::_1 ) );
 	}
+
+    void	connectConnectEventHandler( const std::function<void( TcpSessionRef )>& eventHandler );
+
+	TcpResolverRef	getResolver() const;
