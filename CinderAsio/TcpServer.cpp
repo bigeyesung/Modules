@@ -75,3 +75,9 @@ void TcpServer::onAccept( TcpSessionRef session, const asio::error_code& err )
 		if ( mErrorEventHandler != nullptr ) {
 			mErrorEventHandler( err.message(), 0 );
 		}
+    } else {
+		if ( mAcceptEventHandler != nullptr ) {
+			mAcceptEventHandler( session );
+		}
+	}
+}
