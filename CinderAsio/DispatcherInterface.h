@@ -4,3 +4,7 @@
 
 #include <string>
 #include <functional>
+
+class DispatcherInterface
+{
+public:
