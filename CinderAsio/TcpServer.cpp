@@ -58,3 +58,8 @@ TcpAcceptorRef TcpServer::getAcceptor() const
 {
 	return mAcceptor;
 }
+
+void TcpServer::connectAcceptEventHandler( const std::function<void( TcpSessionRef )>& eventHandler )
+{
+	mAcceptEventHandler = eventHandler;
+}
