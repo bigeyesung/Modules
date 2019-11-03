@@ -13,3 +13,8 @@ public:
 	void IntDataToString(const vector<int> & inData, string & outData);
 	void StringToIntData(const string & inData, vector<int> & outData);
 	void StringToIntData(const string & inData, vector<int>& outData, string& EndString);
+
+    void FloatDataToString(const vector<float>& inData, string & outData);
+
+	void StringToFloatData(const string & inData, vector<float>& outData, string& EndString);
+	
