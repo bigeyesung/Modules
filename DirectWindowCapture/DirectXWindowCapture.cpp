@@ -338,3 +338,10 @@ void DirectXWindowCapture::InitGLDX_ShareTexture(int BindIndex)
 				GL_TEXTURE_2D,
 				WGL_ACCESS_READ_ONLY_NV);
 #else
+			// m_GLSharedTexture_HANDLE is the shared texture data, now identified by the g_GLTexture name
+			m_GLSharedTexture_HANDLE = wglDXRegisterObjectNV(m_DX11Device_HANDLE,
+				DX_Texture,
+				GL_Texture,
+				GL_TEXTURE_2D,
+				WGL_ACCESS_READ_ONLY_NV);
+#endif
