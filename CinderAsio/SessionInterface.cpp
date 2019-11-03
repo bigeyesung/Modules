@@ -97,3 +97,8 @@ void SessionInterface::connectReadEventHandler( const std::function<void( ci::Bu
 {
 	mReadEventHandler = eventHandler;
 }
+
+void SessionInterface::connectReadCompleteEventHandler( const std::function<void ()>& eventHandler )
+{
+	mReadCompleteEventHandler = eventHandler;
+}
