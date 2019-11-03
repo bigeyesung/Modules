@@ -4,3 +4,7 @@ DataBreakDown::DataBreakDown()
 {
 
 }
+DataBreakDown::~DataBreakDown()
+{
+
+}
