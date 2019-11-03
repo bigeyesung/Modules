@@ -92,3 +92,10 @@ void DataBreakDown::StringToFloatData(const string & inData, vector<float> & out
 		in >> outData[i];
 	}
 	EndString = "";
+    getline(in, EndString);
+	if (EndString != "")
+	{
+		//�h�Ů�
+		EndString.erase(0, 1);
+	}
+}
