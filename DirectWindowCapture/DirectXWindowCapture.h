@@ -46,3 +46,10 @@ public:
 	void UpdateHDC();
 	void LockDX();
 	void UnLockDX();
+
+private:
+	//d3d init
+	HRESULT initDevice();
+	HRESULT CreatTexture(ID3D11Device* Device, int width, int high);
+	static BOOL CALLBACK FindWindowsHandle(HWND hwnd, LPARAM lParam);
+	static bool CheckWindowValid(HWND hWnd);
