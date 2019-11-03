@@ -102,3 +102,8 @@ void SessionInterface::connectReadCompleteEventHandler( const std::function<void
 {
 	mReadCompleteEventHandler = eventHandler;
 }
+
+void SessionInterface::connectWriteEventHandler( const std::function<void( size_t )>& eventHandler )
+{
+	mWriteEventHandler = eventHandler;
+}
