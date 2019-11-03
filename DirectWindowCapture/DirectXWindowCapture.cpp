@@ -52,3 +52,6 @@ HRESULT DirectXWindowCapture::init()
 	{
 		return hr;
 	}
+
+    return hr;
+}
