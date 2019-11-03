@@ -141,3 +141,10 @@ bool DirectXWindowCapture::CheckWindowValid(HWND hWnd)
 		ex_styles = (DWORD)GetWindowLongPtr(hWnd, GWL_EXSTYLE);
 		if (ex_styles & WS_EX_TOOLWINDOW)
 			return false;
+        if (styles & WS_CHILD)
+			return false;
+		if ((rect.bottom == 0 || rect.right == 0))
+			return false;
+	}
+	return !NotValid;
+}
