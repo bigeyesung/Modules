@@ -16,3 +16,8 @@ class ClientInterface : public DispatcherInterface
 	}
 
 	void				connectResolveEventHandler( const std::function<void ()>& eventHandler );
+    protected:
+	ClientInterface( asio::io_service& io );
+	
+	std::function<void ()>	mResolveEventHandler;
+};
