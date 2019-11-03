@@ -117,3 +117,14 @@ BOOL DirectXWindowCapture::FindWindowsHandle(HWND hwnd, LPARAM lParam)
 
 	return TRUE;
 }
+
+bool DirectXWindowCapture::CheckWindowValid(HWND hWnd)
+{
+	int CloakedVal;
+	bool NotValid;
+
+	HRESULT hRes = DwmGetWindowAttribute(hWnd, DWMWA_CLOAKED, &CloakedVal, sizeof(CloakedVal));
+	if (hRes != S_OK)
+	{
+		CloakedVal = 0;
+	}
