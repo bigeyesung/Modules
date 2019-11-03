@@ -112,3 +112,8 @@ BOOL DirectXWindowCapture::FindWindowsHandle(HWND hwnd, LPARAM lParam)
 	{
 		return TRUE;
 	}
+    std::vector<HWND>& titles = *reinterpret_cast<std::vector<HWND>*>(lParam);
+	titles.push_back(hwnd);
+
+	return TRUE;
+}
