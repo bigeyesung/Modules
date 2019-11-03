@@ -10,3 +10,8 @@ TcpClientRef TcpClient::create( asio::io_service& io )
 {
 	return TcpClientRef( new TcpClient( io ) )->shared_from_this();
 }
+
+TcpClient::TcpClient( asio::io_service& io )
+	: ClientInterface( io ), mConnectEventHandler( nullptr )
+{
+}
