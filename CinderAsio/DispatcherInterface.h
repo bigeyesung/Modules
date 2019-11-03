@@ -16,3 +16,6 @@ public:
 		connectErrorEventHandler( std::bind( eventHandler, eventHandlerObject, std::placeholders::_1, std::placeholders::_2 ) );
 	}
 	void				connectErrorEventHandler( const std::function<void( std::string, size_t )>& eventHandler );
+
+protected:
+	DispatcherInterface( asio::io_service& io );
