@@ -15,3 +15,11 @@ TcpServer::TcpServer( asio::io_service& io )
 	: ServerInterface( io ), mAcceptEventHandler( nullptr ), mCancelEventHandler( nullptr )
 {
 }
+
+
+TcpServer::~TcpServer()
+{
+	mAcceptEventHandler = nullptr;
+	mCancelEventHandler = nullptr;
+	cancel();
+}
