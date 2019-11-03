@@ -53,3 +53,10 @@ private:
 	HRESULT CreatTexture(ID3D11Device* Device, int width, int high);
 	static BOOL CALLBACK FindWindowsHandle(HWND hwnd, LPARAM lParam);
 	static bool CheckWindowValid(HWND hWnd);
+    int TextureWidth;
+	int TextureHigh;
+
+	HWND m_Hwnd;
+	vector<HWND> AllWindow_HWND;
+
+	s_MouseInfo m_MouseInfo;
