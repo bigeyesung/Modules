@@ -11,3 +11,7 @@ public:
 	static ci::BufferRef	stringToBuffer( std::string& value );
 
 	~SessionInterface();
+
+    virtual void			read() = 0;
+	virtual void			write( const ci::BufferRef& buffer ) = 0;
+	virtual void			writeTo(const ci::BufferRef& buffer) = 0;
