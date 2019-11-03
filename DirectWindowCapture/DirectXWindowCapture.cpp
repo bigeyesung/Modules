@@ -13,3 +13,16 @@ DirectXWindowCapture::DirectXWindowCapture()
 	m_MouseInfo.Ci.cbSize = sizeof(CURSORINFO);
 
 }
+
+DirectXWindowCapture::~DirectXWindowCapture()
+{
+	if (DX_Texture)
+	{
+		DX_Texture->Release();
+		DX_Texture = NULL;
+	}
+	if (m_GdiSurface)
+	{
+		m_GdiSurface->Release();
+		m_GdiSurface = NULL;
+	}
