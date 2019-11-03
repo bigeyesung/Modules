@@ -226,3 +226,14 @@ HRESULT DirectXWindowCapture::CreatTexture(ID3D11Device* Device, int width, int 
 			TextureDesc.CPUAccessFlags = 0;
 			TextureDesc.Usage = D3D11_USAGE_DEFAULT;
 			TextureDesc.MiscFlags = D3D11_RESOURCE_MISC_GDI_COMPATIBLE;
+            hr = Device->CreateTexture2D(&TextureDesc, NULL, &DX_Texture);
+			if (FAILED(hr))
+				return hr;
+			//���otexture Surface���
+			hr = DX_Texture->QueryInterface(__uuidof(IDXGISurface1),
+				(void**)&m_GdiSurface);
+			return hr;
+		}
+	}
+	return S_FALSE;	
+}
