@@ -30,3 +30,15 @@ void CustomMesh::CreatMesh(int Width, int Height,int ColNum,int RowNum,vector<ve
 			g_PointOne.push_back(index);
 			g_PointTwo.push_back(index + 1);
 			g_PointThree.push_back(index + ColNum + 1);
+
+            g_PointOne.push_back(index);
+			g_PointTwo.push_back(index + ColNum + 1);
+			g_PointThree.push_back(index + ColNum);
+		}
+	}
+
+	vec3 Vertex_Pos;
+	vec3 Vertex_Normal;
+	vec2 Vertex_Coord;
+
+	int j = 0;
