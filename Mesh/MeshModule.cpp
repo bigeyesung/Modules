@@ -134,3 +134,25 @@ void CustomMesh::CreatMesh(int Width, int Height, int ColNum, int RowNum, vector
 			g_PointThree.push_back(index + ColNum);
 		}
 	}
+
+    vec3 Vertex_Pos;
+	vec3 Vertex_Normal;
+	vec2 Vertex_Coord;
+
+	int j = 0;
+	for (int i = 0; i < g_PointOne.size(); i++)
+	{
+		Vertex_Pos.x = VertexPos[g_PointOne[i]].final.x;
+		Vertex_Pos.y = VertexPos[g_PointOne[i]].final.y;
+		Vertex_Pos.z = 0.0;
+		Vertex_Normal.x = 0.0;
+		Vertex_Normal.y = 0.0;
+		Vertex_Normal.z = 0.0;
+
+        Vertex_Coord.x = VertexPos.at(g_PointOne[i]).p.x / (float)Width;
+		Vertex_Coord.y = 1 - VertexPos.at(g_PointOne[i]).p.y / (float)Height;
+
+		VboVertices.push_back(Vertex_Pos);
+		VboNormals.push_back(Vertex_Normal);
+		VboTexCoords.push_back(Vertex_Coord);
+		VboIndices.push_back(j);
