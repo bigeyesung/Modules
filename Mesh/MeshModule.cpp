@@ -100,3 +100,9 @@ void CustomMesh::CreatMesh(int Width, int Height,int ColNum,int RowNum,vector<ve
 	g_PointOne.clear();
 	g_PointTwo.clear();
 	g_PointThree.clear();
+
+    VboTexCoords.clear();
+	VboVertices.clear();
+	VboNormals.clear();
+	VboIndices.clear();
+}
