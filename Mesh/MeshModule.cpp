@@ -192,3 +192,13 @@ void CustomMesh::CreatMesh(int Width, int Height, int ColNum, int RowNum, vector
 	m_VboMesh->bufferAttrib(geom::Attrib::POSITION, VboVertices);
 	m_VboMesh->bufferAttrib(geom::Attrib::NORMAL, VboNormals);
 	m_VboMesh->bufferAttrib(geom::Attrib::TEX_COORD_0, VboTexCoords);
+
+    g_PointOne.clear();
+	g_PointTwo.clear();
+	g_PointThree.clear();
+
+	VboTexCoords.clear();
+	VboVertices.clear();
+	VboNormals.clear();
+	VboIndices.clear();
+}
