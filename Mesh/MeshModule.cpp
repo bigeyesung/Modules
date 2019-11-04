@@ -4,3 +4,7 @@ CustomMesh::CustomMesh()
 {
 
 }
+CustomMesh::~CustomMesh()
+{
+	
+}
