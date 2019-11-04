@@ -42,3 +42,20 @@ void CustomMesh::CreatMesh(int Width, int Height,int ColNum,int RowNum,vector<ve
 	vec2 Vertex_Coord;
 
 	int j = 0;
+
+    for (int i = 0; i < g_PointOne.size(); i++)
+	{
+		Vertex_Pos.x = VertexPos[g_PointOne[i]].x;
+		Vertex_Pos.y = VertexPos[g_PointOne[i]].y;
+		Vertex_Pos.z = 0.0;
+		Vertex_Normal.x = 0.0;
+		Vertex_Normal.y = 0.0;
+		Vertex_Normal.z = 0.0;
+		//���� = UV
+		Vertex_Coord.x = VertexScreenPos.at(g_PointOne[i]).x / Width;		
+		Vertex_Coord.y = 1 - VertexScreenPos.at(g_PointOne[i]).y / Height;
+
+		VboVertices.push_back(Vertex_Pos);
+		VboNormals.push_back(Vertex_Normal);
+		VboTexCoords.push_back(Vertex_Coord);
+		VboIndices.push_back(j);
