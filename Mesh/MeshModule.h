@@ -16,3 +16,10 @@ public:
 	void CreatMesh(int Width, int Height, int ColNum, int RowNum, vector<vec2> VertexPos, vector<vec2> VertexScreenPos);
 
 	void CreatMesh(int Width, int Height, int ColNum, int RowNum, vector<joints> VertexPos);
+
+    gl::VboMeshRef &GetVboMesh() { return m_VboMesh; }
+private:
+	//MeshRef
+	gl::VboMeshRef m_VboMesh;
+
+};
