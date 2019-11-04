@@ -186,3 +186,9 @@ void CustomMesh::CreatMesh(int Width, int Height, int ColNum, int RowNum, vector
 
 		j += 3;
 	}
+
+    m_VboMesh = gl::VboMesh::create(VboVertices.size(), GL_TRIANGLES, { gl::VboMesh::Layout().usage(GL_DYNAMIC_DRAW).attrib(geom::POSITION, 3).attrib(geom::NORMAL, 3).attrib(geom::TEX_COORD_0, 2) }, VboIndices.size(), GL_UNSIGNED_SHORT);
+	m_VboMesh->bufferIndices(VboIndices.size() * sizeof(uint16_t), VboIndices.data());				//GL_DYNAMIC_DRAW GL_STATIC_DRAW
+	m_VboMesh->bufferAttrib(geom::Attrib::POSITION, VboVertices);
+	m_VboMesh->bufferAttrib(geom::Attrib::NORMAL, VboNormals);
+	m_VboMesh->bufferAttrib(geom::Attrib::TEX_COORD_0, VboTexCoords);
