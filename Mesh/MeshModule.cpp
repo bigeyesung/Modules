@@ -170,3 +170,12 @@ void CustomMesh::CreatMesh(int Width, int Height, int ColNum, int RowNum, vector
 		VboNormals.push_back(Vertex_Normal);
 		VboTexCoords.push_back(Vertex_Coord);
 		VboIndices.push_back(j + 1);
+
+        Vertex_Pos.x = VertexPos[g_PointThree[i]].final.x;
+		Vertex_Pos.y = VertexPos[g_PointThree[i]].final.y;
+		Vertex_Pos.z = 0.0;
+		Vertex_Normal.x = 0.0;
+		Vertex_Normal.y = 0.0;
+		Vertex_Normal.z = 0.0;
+		Vertex_Coord.x = VertexPos.at(g_PointThree[i]).p.x / (float)Width;
+		Vertex_Coord.y = 1 - VertexPos.at(g_PointThree[i]).p.y / (float)Height;
