@@ -19,3 +19,9 @@ public:
     void creat(int width, int high, GLenum format = GL_BGR);
 	
 	void update(int TextureID, Mat& Frame);
+
+private:
+
+	ci::gl::PboRef				m_PboRef;
+	GLubyte*					m_PboPtr;
+	GLenum						m_format;
