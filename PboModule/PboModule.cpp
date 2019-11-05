@@ -38,3 +38,9 @@ void PboProcess::update(int TextureID, Mat& Frame)
 	{
 		//console() << "update" << std::endl;
 		memcpy(m_PboPtr, (GLubyte*)Frame.data, m_iDataSize);
+
+        glUnmapBufferARB(GL_PIXEL_UNPACK_BUFFER_ARB); // release pointer to mapping buffer
+	}
+	glBindBufferARB(GL_PIXEL_UNPACK_BUFFER_ARB, 0);
+
+}
