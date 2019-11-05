@@ -30,3 +30,11 @@ void PboProcess::update(int TextureID, Mat& Frame)
 
 	// bind PBO to update pixel values
 	glBindBufferARB(GL_PIXEL_UNPACK_BUFFER_ARB, m_PboRef->getId());
+
+    glBufferDataARB(GL_PIXEL_UNPACK_BUFFER_ARB, m_iDataSize, 0, GL_STREAM_DRAW_ARB);
+	//m_PboPtr = (GLubyte*)glMapBufferRange(GL_PIXEL_UNPACK_BUFFER, 0, m_iDataSize, GL_MAP_WRITE_BIT | GL_MAP_UNSYNCHRONIZED_BIT);
+	m_PboPtr = (GLubyte*)glMapBufferARB(GL_PIXEL_UNPACK_BUFFER_ARB, GL_WRITE_ONLY_ARB); ;// (GLubyte*)m_PboRef->map(GL_WRITE_ONLY);
+	if (m_PboPtr)
+	{
+		//console() << "update" << std::endl;
+		memcpy(m_PboPtr, (GLubyte*)Frame.data, m_iDataSize);
