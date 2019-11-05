@@ -23,3 +23,10 @@ void PboProcess::update(int TextureID, Mat& Frame)
 	//// bind the texture and PBO
 	glBindTexture(GL_TEXTURE_2D, TextureID);
 	glBindBufferARB(GL_PIXEL_UNPACK_BUFFER_ARB, m_PboRef->getId());
+
+    // copy pixels from PBO to texture object
+	// Use offset instead of ponter.
+	glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, m_Width, m_High, m_format, GL_UNSIGNED_BYTE, 0);
+
+	// bind PBO to update pixel values
+	glBindBufferARB(GL_PIXEL_UNPACK_BUFFER_ARB, m_PboRef->getId());
