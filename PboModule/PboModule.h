@@ -9,3 +9,13 @@ using namespace ci;
 using namespace ci::app;
 using namespace std;
 using namespace cv;
+
+class PboProcess
+{
+public:
+	PboProcess();
+	~PboProcess();
+
+    void creat(int width, int high, GLenum format = GL_BGR);
+	
+	void update(int TextureID, Mat& Frame);
