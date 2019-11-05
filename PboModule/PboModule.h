@@ -25,3 +25,9 @@ private:
 	ci::gl::PboRef				m_PboRef;
 	GLubyte*					m_PboPtr;
 	GLenum						m_format;
+
+    int m_Width;
+	int m_High;
+	int m_iDataSize;
+
+};
