@@ -3,3 +3,7 @@ PboProcess::PboProcess()
 {
 
 }
+PboProcess::~PboProcess()
+{
+
+}
