@@ -36,3 +36,9 @@ void OpenCV_Play::Close()
 		m_isPlay = false;
 		m_VideoCap.release();
 		tempFrame.release();
+        //destroyAllWindows();
+		destroyWindow("Play Video");
+		m_Reload = false;
+		m_Pause = false;
+	}
+}
