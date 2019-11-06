@@ -18,3 +18,6 @@ public:
     pTcpServerRef CreatSocket();
 
 	boost::asio::io_service & getIOService();
+
+protected:
+	char* Buf;
