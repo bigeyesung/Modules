@@ -20,3 +20,10 @@ public:
 	void Stop() { m_Reload = true; m_Pause = true; }
 
 private:
+
+	VideoCapture m_VideoCap;
+	Mat tempFrame;
+	bool m_Reload;
+	bool m_Pause;
+	bool m_isPlay;
+};
