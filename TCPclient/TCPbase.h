@@ -15,3 +15,6 @@ class TCPbase
 public:
 	TCPbase();
 	~TCPbase();
+    pTcpServerRef CreatSocket();
+
+	boost::asio::io_service & getIOService();
