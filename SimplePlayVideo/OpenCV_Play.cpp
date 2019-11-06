@@ -6,3 +6,8 @@ OpenCV_Play::OpenCV_Play()
 	m_Pause = false;
 	m_isPlay = false;
 }
+
+OpenCV_Play::~OpenCV_Play()
+{
+	Close();
+}
