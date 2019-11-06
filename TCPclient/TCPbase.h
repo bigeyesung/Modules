@@ -21,3 +21,8 @@ public:
 
 protected:
 	char* Buf;
+
+private:
+    tIOServiceRef m_ioService;
+
+};
