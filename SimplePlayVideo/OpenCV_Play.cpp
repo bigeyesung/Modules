@@ -52,3 +52,16 @@ void OpenCV_Play::Play()
 			m_VideoCap.set(CAP_PROP_POS_FRAMES, 0);
 			m_Reload = false;
 		}
+        if (!m_Pause)//
+		{
+			m_VideoCap >> tempFrame;
+		}
+		if (tempFrame.empty())//
+		{
+			m_Reload = true;
+			return;
+		}
+		imshow("Play Video", tempFrame);
+	}
+
+}
