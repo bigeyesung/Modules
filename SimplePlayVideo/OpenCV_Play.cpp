@@ -23,3 +23,8 @@ void OpenCV_Play::LoadFile(string FilePath)
 	}
 	else
 	{
+        m_isPlay = false;
+		m_Reload = false;
+		m_Pause = false;
+	}
+}
