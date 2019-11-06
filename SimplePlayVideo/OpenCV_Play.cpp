@@ -42,3 +42,13 @@ void OpenCV_Play::Close()
 		m_Pause = false;
 	}
 }
+
+void OpenCV_Play::Play()
+{
+	if (m_VideoCap.isOpened())
+	{
+		if (m_Reload)//
+		{
+			m_VideoCap.set(CAP_PROP_POS_FRAMES, 0);
+			m_Reload = false;
+		}
