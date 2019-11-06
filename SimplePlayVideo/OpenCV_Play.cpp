@@ -11,3 +11,10 @@ OpenCV_Play::~OpenCV_Play()
 {
 	Close();
 }
+
+void OpenCV_Play::LoadFile(string FilePath)
+{
+	m_VideoCap.release();
+	m_VideoCap.open(FilePath);
+	if (m_VideoCap.isOpened())
+	{
