@@ -12,3 +12,7 @@ pTcpServerRef TCPbase::CreatSocket()
 {
 	return pTcpServerRef(new ip::tcp::socket(getIOService()));
 }
+boost::asio::io_service & TCPbase::getIOService()
+{
+	return *m_ioService;
+}
