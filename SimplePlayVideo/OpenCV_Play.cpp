@@ -28,3 +28,11 @@ void OpenCV_Play::LoadFile(string FilePath)
 		m_Pause = false;
 	}
 }
+
+void OpenCV_Play::Close()
+{
+	if (m_VideoCap.isOpened())
+	{
+		m_isPlay = false;
+		m_VideoCap.release();
+		tempFrame.release();
