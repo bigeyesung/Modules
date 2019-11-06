@@ -15,3 +15,8 @@ public:
 
 	void LoadFile(string FilePath);
 	void Close();
+    void Play();
+	void Pause(bool in) { m_Pause = in; }
+	void Stop() { m_Reload = true; m_Pause = true; }
+
+private:
