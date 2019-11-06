@@ -17,4 +17,9 @@ void OpenCV_Play::LoadFile(string FilePath)
 	m_VideoCap.release();
 	m_VideoCap.open(FilePath);
 	if (m_VideoCap.isOpened())
+	{	m_isPlay = true;
+		m_Reload = false;
+		m_Pause = false;
+	}
+	else
 	{
