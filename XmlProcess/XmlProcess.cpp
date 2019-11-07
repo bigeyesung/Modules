@@ -197,3 +197,27 @@ bool XmlProcess::GetData(vector<s_ShaderSetData> & inData)
 			DataExist[i] = m_Xml->getNodeValue({ TypeName, TypeName1, TypeName2, "BlendingGamma" }, tempF);
 			if (DataExist[i])
 			{
+                inData[i].BlendingGamma = tempF;
+				m_Xml->getNodeValue({ TypeName, TypeName1, TypeName2, "TextureBindIdx" }, inData[i].TextureBindIdx);
+				m_Xml->getNodeValue({ TypeName, TypeName1, TypeName2, "ColorBright" }, tempF);
+				inData[i].ColorBright = tempF;
+				m_Xml->getAttrValue({ TypeName, TypeName1, TypeName2, "OverLapBind" }, "r", tempF);
+				inData[i].OverLapB.r = tempF;
+				m_Xml->getAttrValue({ TypeName, TypeName1, TypeName2, "OverLapBind" }, "g", tempF);
+				inData[i].OverLapB.g = tempF;
+				m_Xml->getAttrValue({ TypeName, TypeName1, TypeName2, "OverLapBind" }, "b", tempF);
+				inData[i].OverLapB.b = tempF;
+				m_Xml->getAttrValue({ TypeName, TypeName1, TypeName2, "OverLapBind" }, "a", tempF);
+				inData[i].OverLapB.a = tempF;
+				m_Xml->getAttrValue({ TypeName, TypeName1, TypeName2, "UV_RL" }, "x", tempF);
+				inData[i].UV_RL.x = tempF;
+				m_Xml->getAttrValue({ TypeName, TypeName1, TypeName2, "UV_RL" }, "y", tempF);
+				inData[i].UV_RL.y = tempF;
+				m_Xml->getAttrValue({ TypeName, TypeName1, TypeName2, "UV_UD" }, "x", tempF);
+				inData[i].UV_UD.x = tempF;
+				m_Xml->getAttrValue({ TypeName, TypeName1, TypeName2, "UV_UD" }, "y", tempF);
+				inData[i].UV_UD.y = tempF;
+
+				inData[i].MaskWork = false;
+				inData[i].MaskBindIdx = inData.size();
+			}
