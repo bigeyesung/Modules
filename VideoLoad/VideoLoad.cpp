@@ -72,3 +72,12 @@ void VideoLoad::EndThread()
 		Video_Th = NULL;
 	}
 }
+
+void VideoLoad::ReleaseVideo()
+{
+	for (int i = 0; i < m_VideoLoad.size(); i++)
+	{
+		m_VideoLoad[i].VideoCap.release();
+	}
+	m_VideoLoad.clear();
+}
