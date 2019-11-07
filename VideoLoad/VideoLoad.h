@@ -67,3 +67,9 @@ private:
 	bool VideoThreadStat;
 
 	bool isReload;
+
+	//gl::TextureRef  VideoTexture;
+	vector<gl::TextureRef> VideoTextureArray;
+	//Pbo 
+	vector<PboProcess> PboArray;
+};
