@@ -358,4 +358,27 @@ void VideoLoad::BindVideoTexture(int frameIdx)
 			}
 		}
 		break;
-        
+        case 1:
+		{			
+			for (int i = 0; i < m_VideoLoad.size(); i++)
+			{				
+				//if (VideoTextureArray[i] == NULL)
+				//{
+				//	VideoTextureArray[i] = gl::Texture::create((unsigned char*)m_VideoLoad[i].imageMat2[m_iCurrentBindImgIdx].data, GL_BGR,
+				//		m_VideoLoad[i].imageMat2[m_iCurrentBindImgIdx].cols, m_VideoLoad[i].imageMat2[m_iCurrentBindImgIdx].rows);
+				//	//VideoTextureArray[i]->bind(i + 1);
+				//}
+				//else
+				//{
+				//	VideoTextureArray[i]->update((unsigned char*)m_VideoLoad[i].imageMat2[m_iCurrentBindImgIdx].data, GL_BGR, GL_UNSIGNED_BYTE, 0,
+				//		m_VideoLoad[i].imageMat2[m_iCurrentBindImgIdx].cols, m_VideoLoad[i].imageMat2[m_iCurrentBindImgIdx].rows);
+				//}
+
+				//PBO ��s
+				PboArray[i].update(VideoTextureArray[i]->getId(), m_VideoLoad[i].imageMat2[m_iCurrentBindImgIdx]);
+
+				if (m_VideoLoad.size() == 1)
+					VideoTextureArray[i]->bind(0);
+				else
+					VideoTextureArray[i]->bind(i + 1);
+			}
