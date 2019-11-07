@@ -57,3 +57,12 @@ void UdpProcess::onConnect( UdpSessionRef session )
 
 	// Get the session from the argument and set callbacks.
 	// Note that you can use lambdas.
+    mSession = session;
+	mSession->connectErrorEventHandler( &UdpProcess::onError, this );
+	mSession->connectWriteEventHandler( &UdpProcess::onWrite, this );
+	mSession->connectReadCompleteEventHandler(&UdpProcess::onReadComplete, this);
+	mSession->connectReadEventHandler(&UdpProcess::onRead, this);
+
+	//write();
+	mSession->read();
+}
