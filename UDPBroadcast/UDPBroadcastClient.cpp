@@ -19,3 +19,9 @@ UDPBroadcastClient::~UDPBroadcastClient()
 	_socket.close();
 	ipaddrs.clear();
 }
+
+void UDPBroadcastClient::OpenSocket(int port)
+{
+	if(!_socket.is_open())
+		_socket= boost::asio::ip::udp::socket(io_service_, udp::endpoint(udp::v4(), port));
+}
