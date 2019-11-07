@@ -164,3 +164,13 @@ bool XmlProcess::GetData(vector<vector<joints>>& inData)
 	}
 	return tempB;
 }
+
+bool XmlProcess::GetData(vector<s_ShaderSetData> & inData)
+{
+	string TypeName, TypeName1, TypeName2;
+	int ProDataNum;
+	string tempS;
+	vector<bool> DataExist;
+	bool tempB = true;
+	TypeName = "ProjectorData";
+	m_Xml->getNodesNum({ TypeName }, ProDataNum);	
