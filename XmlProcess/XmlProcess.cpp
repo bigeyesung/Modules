@@ -61,3 +61,14 @@ bool XmlProcess::GetData(s_InitData & inData)
 		inData.m_aliquots_w--;
 		m_Xml->getAttrValue({ TypeName ,"PointNum" }, "High", inData.m_aliquots_h);
 		inData.m_aliquots_h--;
+        m_Xml->getAttrValue({ TypeName ,"OverPointNum" }, "Width", inData.OverWidth);
+		m_Xml->getAttrValue({ TypeName ,"OverPointNum" }, "High", inData.OverHigh);
+		m_Xml->getAttrValue({ TypeName ,"WorldPos" }, "Width", inData.WorldWidth);
+		m_Xml->getAttrValue({ TypeName ,"WorldPos" }, "High", inData.WorldHigh);
+		m_Xml->getNodesNum({ TypeName ,"VideoName" }, tempInt);
+		inData.VideoName.resize(tempInt);
+		for (int i = 0; i < inData.VideoName.size(); i++)
+		{
+			TypeName1 = "Name" + to_string(i);
+			m_Xml->getNodeValue({ TypeName ,"VideoName", TypeName1 }, inData.VideoName[i]);
+		}
