@@ -52,3 +52,9 @@ public:
 	void UnbindVideoTexture();
 	
 	int GetLoadVideoNum() { return m_VideoLoad.size(); }
+private:
+
+	vector<VideoLoadData> m_VideoLoad;
+	int m_BufferNum;	
+	int CurrentLoadBuffer;
+	int CurrentBindBuffer;
