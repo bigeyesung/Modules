@@ -174,3 +174,11 @@ bool XmlProcess::GetData(vector<s_ShaderSetData> & inData)
 	bool tempB = true;
 	TypeName = "ProjectorData";
 	m_Xml->getNodesNum({ TypeName }, ProDataNum);	
+
+    if (ProDataNum == 0)
+	{
+		tempB = false;
+		DataExist.resize(inData.size());
+		for (int i = 0; i < DataExist.size(); i++)
+			DataExist[i] = false;
+	}
