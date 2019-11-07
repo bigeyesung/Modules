@@ -72,3 +72,17 @@ bool XmlProcess::GetData(s_InitData & inData)
 			TypeName1 = "Name" + to_string(i);
 			m_Xml->getNodeValue({ TypeName ,"VideoName", TypeName1 }, inData.VideoName[i]);
 		}
+        m_Xml->getNodeValue({ TypeName ,"OperatingMode" }, inData.OperatingMode);
+		//m_Xml->getNodeValue({ TypeName ,"ServerIP" }, inData.ServerIP);
+		//m_Xml->getNodeValue({ TypeName ,"TCPport" }, inData.TCPport);
+		m_Xml->getNodeValue({ TypeName ,"FluorescentPoint" }, tempInt);
+		inData.FluorescentPoint = tempInt;
+		m_Xml->getNodeValue({ TypeName ,"WallIntact" }, tempInt);
+		inData.WallIntact = tempInt;
+		m_Xml->getNodeValue({ TypeName ,"CaptureChangeType" }, inData.CaptureChangeType);
+		m_Xml->getNodeValue({ TypeName ,"CameraRotaType" }, inData.CameraRotaType);
+		m_Xml->getNodeValue({ TypeName ,"BlendPhase" }, inData.BlendPhase);
+
+
+		return true;
+	}
