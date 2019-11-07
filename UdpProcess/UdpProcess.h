@@ -61,3 +61,12 @@ private:
 	UdpSessionRef				mSession;
 	std::string                 mReceive;
 
+	void						write();
+
+	void						onConnect( UdpSessionRef session );
+	void						onError( std::string err, size_t bytesTransferred );
+	void						onWrite( size_t bytesTransferred );
+	void						onResolve();
+	void						onRead(ci::BufferRef buffer);
+	void						onReadComplete();
+	void						onConnectBroadcast(int32_t iPort);
