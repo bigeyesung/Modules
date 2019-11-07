@@ -13,3 +13,10 @@ typedef std::shared_ptr<asio::io_service> IOServiceRef;
 
 using namespace std;
 
+class ioserviceManager
+{
+public:
+	ioserviceManager()
+	{
+		m_ioService = std::shared_ptr<asio::io_service>(new asio::io_service());
+	}
