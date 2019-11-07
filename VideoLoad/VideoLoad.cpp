@@ -133,3 +133,19 @@ bool VideoLoad::LoadVideoFirst()
 				PboArray[k].creat(m_VideoLoad[k].imageMat1[0].cols, m_VideoLoad[k].imageMat1[0].rows);
 			}
 		}
+	if (FailedIndex > 0)
+		{
+			m_VideoLoad.resize(FailedIndex);
+		}
+		else if (FailedIndex == 0)
+		{
+			m_VideoLoad.clear();
+		}
+		return true;
+	}
+	else
+	{
+		//Video_Th = new thread(&VideoLoad::LoadingVideo, this);
+		return false;
+	}
+}
