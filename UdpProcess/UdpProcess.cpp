@@ -17,3 +17,12 @@ void UdpProcess::init(bool broadcast, int32_t iPort, std::string strHost)
 	// manually (i.e., call poll(), poll_one(), run(), etc).
 	//m_ioService = shared_ptr<asio::io_service>(new asio::io_service());
 	mClient = UdpClient::create(ioserviceManager::getIoService());
+
+    mPort = iPort;
+	mHost = strHost;
+
+	// Add callbacks to work with the client asynchronously.
+	// Note that you can use lambdas.
+	mClient->connectErrorEventHandler(&UdpProcess::onError, this);
+	if (!broadcast)
+	{
