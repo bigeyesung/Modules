@@ -90,3 +90,14 @@ void UdpProcess::onResolve()
 	ci::app::console() << "Endpoint resolved" << std::endl;
 
 }
+
+void UdpProcess::onRead(ci::BufferRef buffer)
+{
+	//mText.push_back(to_string(int(buffer->getSize())) + " bytes read");
+
+	// Data is packaged as a ci::Buffer. This allows 
+	// you to send any kind of data. Because it's more common to
+	// work with strings, the session object has static convenience 
+	// methods for converting between std::string and ci::Buffer.
+	mReceive.clear();
+	mReceive = UdpSession::bufferToString(buffer);
