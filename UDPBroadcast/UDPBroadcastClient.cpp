@@ -85,3 +85,8 @@ void UDPBroadcastClient::HandleReceive(const boost::system::error_code& error,
 
 
 }
+
+void UDPBroadcastClient::handleSend(std::shared_ptr<std::string> message, const boost::system::error_code & ec, std::size_t bytes_transferred)
+{
+	printf("send.\n");
+}
