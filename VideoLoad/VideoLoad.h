@@ -43,3 +43,12 @@ public:
 	void ReleaseVideo();
 
 	void LoadingVideo();
+
+
+	void ReloadVideo();
+
+	void BindVideoTexture(int frameIdx);
+
+	void UnbindVideoTexture();
+	
+	int GetLoadVideoNum() { return m_VideoLoad.size(); }
