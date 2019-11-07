@@ -382,3 +382,20 @@ void VideoLoad::BindVideoTexture(int frameIdx)
 				else
 					VideoTextureArray[i]->bind(i + 1);
 			}
+            if (m_iCurrentBindImgIdx == m_BufferNum - 1)
+			{
+				CurrentLoadBuffer = 1;
+				m_iPrevBindBufIdx = 0;
+			}
+			else if (m_iPrevBindBufIdx != CurrentBindBuffer)
+			{
+				//console() << "missing packet Buffer 0 " << m_iPreviousFrameIdx << " " << frameIdx << endl;
+				CurrentLoadBuffer = 0;
+				m_iPrevBindBufIdx = CurrentBindBuffer;
+			}
+		}
+		break;
+		}
+		m_iPreviousFrameIdx = frameIdx;
+	}
+}
