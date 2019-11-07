@@ -83,3 +83,10 @@ void UdpProcess::onWrite( size_t bytesTransferred )
 	//mText.push_back( to_string( bytesTransferred ) + " bytes written" );
 	ci::app::console() << writeMsg.c_str() << std::endl;
 }
+
+void UdpProcess::onResolve()
+{
+	//mText.push_back("Endpoint resolved");
+	ci::app::console() << "Endpoint resolved" << std::endl;
+
+}
