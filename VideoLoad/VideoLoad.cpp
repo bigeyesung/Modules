@@ -298,3 +298,15 @@ void VideoLoad::ReloadVideo()
 	}
 
 }
+
+void VideoLoad::BindVideoTexture(int frameIdx)
+{
+	if (frameIdx == -10)
+	{
+		if (!isReload)
+		{
+			//console() << "reload Image" << endl;
+			ReloadVideo();
+			isReload = true;
+		}
+	}
