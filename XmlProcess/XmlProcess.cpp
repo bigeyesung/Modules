@@ -250,3 +250,12 @@ bool XmlProcess::GetData(vector<s_ShaderSetData> & inData)
 	}
 	return tempB;
 }
+
+void XmlProcess::CloseXml()
+{
+	if (m_Xml != NULL)
+	{
+		delete m_Xml;
+		m_Xml = NULL;
+	}
+}
