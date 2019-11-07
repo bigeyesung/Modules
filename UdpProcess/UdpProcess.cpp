@@ -66,3 +66,13 @@ void UdpProcess::onConnect( UdpSessionRef session )
 	//write();
 	mSession->read();
 }
+
+void UdpProcess::onError( string err, size_t bytesTransferred )
+{
+	string text = "Error";
+	if ( !err.empty() ) {
+		text += ": " + err;
+	}
+	 //mText.push_back( text );
+	//ci::app::console() << text.c_str() << std::endl;
+}
