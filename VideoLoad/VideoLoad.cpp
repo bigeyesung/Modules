@@ -199,3 +199,46 @@ void VideoLoad::LoadingVideo()
 			CurrentLoadBuffer = -1;
 		}
 		break;
+        case 1:
+		{
+			for (int i = 0; i < m_VideoLoad.size(); i++)
+			{
+				for (int LIj = 0; LIj < m_BufferNum; LIj++)
+				{
+					if (m_VideoLoad[i].currentFrame >= m_VideoLoad[i].TotalFrame)
+					{
+						console() << "Buffer2 end: " << m_VideoLoad[0].currentFrame << endl;
+						m_VideoLoad[i].VideoCap.set(CAP_PROP_POS_FRAMES, 0);
+						//m_VideoLoad[i].mediaCapture->reset();
+						m_VideoLoad[i].currentFrame = 0;
+						m_VideoLoad[i].keepLoading = false;
+						m_VideoLoad[i].reloadImage = true;
+						//m_bKeepLoading = false;
+						//m_bReload = true;
+						LIj = m_BufferNum;
+					}
+					if (m_VideoLoad[i].keepLoading)
+					{
+						//�T�O����s�e��
+						m_VideoLoad[i].imageMat2[LIj].release();
+						do
+						{
+							m_VideoLoad[i].VideoCap.read(m_VideoLoad[i].imageMat2[LIj]);
+						} while (m_VideoLoad[i].imageMat2[LIj].empty());
+
+
+						//while (!m_VideoLoad[i].VideoCap.read(m_VideoLoad[i].imageMat2[LIj]))
+						//{
+						//	//LIj = m_BufferNum;
+						//}
+						//else
+						{
+							m_VideoLoad[i].currentFrame++;
+							//console() << "Buffer2 load: " << m_VideoLoad[i].currentFrame << endl;
+						}
+					}
+				}
+			}
+			CurrentLoadBuffer = -1;
+		}
+		break;
