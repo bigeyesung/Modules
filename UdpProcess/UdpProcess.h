@@ -35,3 +35,12 @@ protected:
 private:
 	IOServiceRef m_ioService;
 };
+
+class UdpProcess : public ioserviceManager
+{
+public:
+	UdpProcess();
+	~UdpProcess();
+
+	void init(bool broadcast, int32_t iPort, std::string strHost);
+	void update();
