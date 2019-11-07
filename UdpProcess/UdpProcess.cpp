@@ -44,3 +44,8 @@ void UdpProcess::init(bool broadcast, int32_t iPort, std::string strHost)
 	}
 	
 }
+
+void UdpProcess::update()
+{
+	ioserviceManager::updateIoService();
+}
