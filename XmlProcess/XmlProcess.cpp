@@ -121,3 +121,14 @@ bool XmlProcess::GetData(s_InitData & inData)
 		return false;
 	}
 }
+
+bool XmlProcess::GetData(vector<vector<joints>>& inData)
+{
+	string TypeName, TypeName1, TypeName2, TypeName3;
+	int ProDataNum;
+	double tempD;
+	string tempS;
+	vector<bool> DataExist;
+	bool tempB = true;
+	TypeName = "ProjectorData";
+	m_Xml->getNodesNum({ TypeName }, ProDataNum);
