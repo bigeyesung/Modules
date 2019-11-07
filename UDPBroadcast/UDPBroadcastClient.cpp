@@ -30,3 +30,15 @@ void UDPBroadcastClient::CloseSocket()
 {
 	_socket.close();
 }
+
+void UDPBroadcastClient::Listen()
+{
+	ServerIP = "None";
+	buffer.assign(0);
+	// Receive data.
+		_socket.async_receive_from(
+			boost::asio::buffer(buffer, buffer.size()), sender_endpoint,
+			boost::bind(&UDPBroadcastClient::HandleReceive, this,
+				boost::asio::placeholders::error,
+				boost::asio::placeholders::bytes_transferred));
+}
