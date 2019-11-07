@@ -47,3 +47,19 @@ void UDPBroadcastClient::AsynUpdate()
 {
 	io_service_.poll();
 }
+
+void UDPBroadcastClient::HandleReceive(const boost::system::error_code& error,
+	std::size_t bytes_transferred)
+{
+	printf("HandleReceive.\n");
+	
+	std::string transfercontent = std::string(buffer.begin(), buffer.begin() + bytes_transferred);
+	std::cout << transfercontent << std::endl;
+	DebugClass debugF;
+	//std::string tempS;
+	if (transfercontent == "Broadcast_message")
+	{
+		ServerIP = sender_endpoint.address().to_string();
+		debugF.CinderConsoleNextLine(ServerIP);
+		ReceiveNum++;
+	}
