@@ -149,3 +149,29 @@ bool VideoLoad::LoadVideoFirst()
 		return false;
 	}
 }
+
+void VideoLoad::LoadingVideo()
+{
+	VideoThreadStat = true;
+	while (VideoThreadStat)
+	{
+		switch (CurrentLoadBuffer)
+		{
+		case 0:
+		{
+			for (int i = 0; i < m_VideoLoad.size(); i++)
+			{
+				for (int LIj = 0; LIj < m_BufferNum; LIj++)
+				{
+					if (m_VideoLoad[i].currentFrame >= m_VideoLoad[i].TotalFrame)
+					{
+						console() << "Buffer1 end: " << m_VideoLoad[0].currentFrame << endl;
+						m_VideoLoad[i].VideoCap.set(CAP_PROP_POS_FRAMES, 0);
+						//m_VideoLoad[i].mediaCapture->reset();
+						m_VideoLoad[i].currentFrame = 0;
+						m_VideoLoad[i].keepLoading = false;
+						m_VideoLoad[i].reloadImage = true;
+						//m_bKeepLoading = false;
+						//m_bReload = true;
+						LIj = m_BufferNum;
+					}
