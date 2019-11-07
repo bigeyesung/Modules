@@ -31,3 +31,19 @@ void VideoLoad::init(const vector<string>& VideoPath, int OneBufferNum)
 		if (tempS != VideoPath[i] && VideoPath[i] != "")
 			tempB = false;
 	}
+	ReleaseVideo();
+
+	if (tempB)
+		m_VideoLoad.resize(1);
+	else
+		m_VideoLoad.resize(VideoPath.size());
+	VideoTextureArray.resize(m_VideoLoad.size());
+	PboArray.resize(m_VideoLoad.size());
+	for (int i = 0; i < m_VideoLoad.size(); i++)
+	{
+		//m_VideoLoad[i].VideoCap.release();
+		m_VideoLoad[i].VideoCap.open(VideoPath[i]);
+		m_VideoLoad[i].currentFrame = 0;
+		m_VideoLoad[i].keepLoading = true;
+		m_VideoLoad[i].reloadImage = false;
+	}
