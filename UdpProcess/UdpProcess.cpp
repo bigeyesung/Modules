@@ -116,3 +116,15 @@ void UdpProcess::onReadComplete()
 	// Continue reading new responses.
 	mSession->read();
 }
+
+void UdpProcess::onConnectBroadcast(int32_t iPort)
+{
+	mClient->connectB((uint16_t)iPort);
+	mSession = mClient->getSession();
+	mSession->connectErrorEventHandler(&UdpProcess::onError, this);
+	mSession->connectWriteEventHandler(&UdpProcess::onWrite, this);
+	mSession->connectReadCompleteEventHandler(&UdpProcess::onReadComplete, this);
+	mSession->connectReadEventHandler(&UdpProcess::onRead, this);
+
+	mSession->read();
+}
