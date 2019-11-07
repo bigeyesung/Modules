@@ -138,3 +138,12 @@ void UdpProcess::write()
 		// work with strings, the session object has static convenience 
 		// methods for converting between std::string and ci::Buffer.
 		mSession->write( UdpSession::stringToBuffer( mRequest ) );
+
+    }
+	//else {
+	//	// Before we can write, we need to establish a connection 
+	//	// and create a session. Check out the onConnect method.
+	//	mText.push_back( "Connecting to: " + mHost + ":" + toString( mPort ) );
+	//	mClient->connect( mHost, (uint16_t)mPort );
+	//}
+}
