@@ -95,3 +95,12 @@ std::string UDPBroadcastClient::getServerIP()
 {
 	return ServerIP;
 }
+
+bool UDPBroadcastClient::Is_timeout(const int & duration, const ptime & starttime, const int & countclient)
+{
+	//if number meets total clients;
+	if (countclient == totalclient)
+	{
+		//qDebug() << "30";
+		return true;
+	}
