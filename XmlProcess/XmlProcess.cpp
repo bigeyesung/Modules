@@ -182,3 +182,18 @@ bool XmlProcess::GetData(vector<s_ShaderSetData> & inData)
 		for (int i = 0; i < DataExist.size(); i++)
 			DataExist[i] = false;
 	}
+    else
+	{
+		
+		inData.resize(ProDataNum);
+		DataExist.resize(ProDataNum);
+		for (int i = 0; i < DataExist.size(); i++)
+			DataExist[i] = false;
+		for (int i = 0; i < ProDataNum; i++)
+		{
+			TypeName1 = "Projector" + to_string(i);
+			TypeName2 = "ShaderData";
+			double tempF;
+			DataExist[i] = m_Xml->getNodeValue({ TypeName, TypeName1, TypeName2, "BlendingGamma" }, tempF);
+			if (DataExist[i])
+			{
