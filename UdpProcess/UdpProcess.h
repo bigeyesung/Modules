@@ -52,3 +52,11 @@ public:
 	{
 		return atoi(mReceive.c_str());
 	}
+
+private:
+	UdpClientRef				mClient;
+	std::string					mHost;
+	int32_t						mPort;
+	std::string					mRequest;
+	UdpSessionRef				mSession;
+	std::string                 mReceive;
