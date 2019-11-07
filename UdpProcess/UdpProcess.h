@@ -70,3 +70,4 @@ private:
 	void						onRead(ci::BufferRef buffer);
 	void						onReadComplete();
 	void						onConnectBroadcast(int32_t iPort);
+};
