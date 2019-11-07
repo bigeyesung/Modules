@@ -291,3 +291,10 @@ void VideoLoad::ReloadVideo()
 	m_iPreviousFrameIdx = -1;
 	m_iCurrentBindImgIdx = 0;
 	m_iPrevBindBufIdx = 0;
+    for (int i = 0; i < m_VideoLoad.size(); i++)
+	{
+		m_VideoLoad[i].keepLoading = true;
+		m_VideoLoad[i].reloadImage = false;
+	}
+
+}
