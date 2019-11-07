@@ -21,3 +21,17 @@ void XmlProcess::ReadXml(const string& FilePath)
 		CloseXml();
 		m_Xml = new XmlParser();
 	}
+
+    if (m_Xml->readXmlFile(FilePath) != XmlParser::RET_SUCCESS)
+	{
+		m_Xml->createXmlFile("ClientData");
+		m_Xml->addNode({ "Root" }, "InitData");
+		m_Xml->addNode({ "Root" }, "ProjectorData");
+
+		//m_Xml->addNode({ "Root" }, "ShaderData");
+		//m_Xml->addNode({ "Root" }, "WebcamData");
+		//m_Xml->addNode({ "Root" }, "WallPoint");
+		//m_Xml->addNode({ "Root" }, "ControlPoint");
+
+		XmlExist = false;
+	}
