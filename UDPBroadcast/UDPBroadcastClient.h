@@ -13,3 +13,7 @@
 #include <boost/asio/ip/host_name.hpp>                //get PC name
 
 #include "../Modules/DebugModule/DebugClass.h"
+
+#pragma once
+#pragma comment(lib, "IPHLPAPI.lib")
+using namespace boost::posix_time;
