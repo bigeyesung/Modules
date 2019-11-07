@@ -35,3 +35,11 @@ public:
 	
 	void init(const vector<string>& VideoPath, int OneBufferNum = 10);
 	bool LoadVideoFirst();
+
+    void InitThread();
+
+	void EndThread();
+
+	void ReleaseVideo();
+
+	void LoadingVideo();
