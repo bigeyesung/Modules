@@ -58,3 +58,12 @@ private:
 	int m_BufferNum;	
 	int CurrentLoadBuffer;
 	int CurrentBindBuffer;
+
+	int m_iPreviousFrameIdx;
+	int m_iCurrentBindImgIdx;
+	int m_iPrevBindBufIdx;
+
+	thread* Video_Th;
+	bool VideoThreadStat;
+
+	bool isReload;
