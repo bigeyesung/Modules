@@ -221,3 +221,10 @@ bool XmlProcess::GetData(vector<s_ShaderSetData> & inData)
 				inData[i].MaskWork = false;
 				inData[i].MaskBindIdx = inData.size();
 			}
+            else
+			{
+				tempB = false;
+				break;
+			}
+		}
+	}
