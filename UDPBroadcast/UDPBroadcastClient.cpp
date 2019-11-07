@@ -90,3 +90,8 @@ void UDPBroadcastClient::handleSend(std::shared_ptr<std::string> message, const 
 {
 	printf("send.\n");
 }
+
+std::string UDPBroadcastClient::getServerIP()
+{
+	return ServerIP;
+}
