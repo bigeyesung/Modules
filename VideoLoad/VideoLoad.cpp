@@ -61,3 +61,14 @@ void VideoLoad::InitThread()
 	if (Video_Th == NULL)
 		Video_Th = new thread(&VideoLoad::LoadingVideo, this);
 }
+
+void VideoLoad::EndThread()
+{
+	VideoThreadStat = false;
+	if (Video_Th != NULL)
+	{
+		Video_Th->join();
+		delete Video_Th;
+		Video_Th = NULL;
+	}
+}
