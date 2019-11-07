@@ -42,3 +42,8 @@ void UDPBroadcastClient::Listen()
 				boost::asio::placeholders::error,
 				boost::asio::placeholders::bytes_transferred));
 }
+
+void UDPBroadcastClient::AsynUpdate()
+{
+	io_service_.poll();
+}
