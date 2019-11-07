@@ -30,3 +30,8 @@ public:
 	{
 		m_ioService->poll();
 	}
+protected:
+	asio::io_service&	getIoService() { return *m_ioService; }
+private:
+	IOServiceRef m_ioService;
+};
