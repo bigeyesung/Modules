@@ -132,3 +132,15 @@ bool XmlProcess::GetData(vector<vector<joints>>& inData)
 	bool tempB = true;
 	TypeName = "ProjectorData";
 	m_Xml->getNodesNum({ TypeName }, ProDataNum);
+    inData.resize(ProDataNum);
+	DataExist.resize(inData.size());
+	for (int i = 0; i < DataExist.size(); i++)
+		DataExist[i] = false;
+	for (int i = 0; i < ProDataNum; i++)
+	{
+		TypeName1 = "Projector" + to_string(i);
+		TypeName2 = "ControlPoint";
+		int PointNum = 0;
+		DataExist[i] = m_Xml->getNodesNum({ TypeName, TypeName1, TypeName2 }, PointNum);
+		inData[i].clear();
+		inData[i].resize(PointNum);
