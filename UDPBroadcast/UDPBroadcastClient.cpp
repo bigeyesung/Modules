@@ -13,3 +13,9 @@ UDPBroadcastClient::UDPBroadcastClient(const int& listenport) : _socket(io_servi
 	ReceiveNum = 0;
 	//Listen();
 }
+
+UDPBroadcastClient::~UDPBroadcastClient()
+{
+	_socket.close();
+	ipaddrs.clear();
+}
