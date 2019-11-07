@@ -26,3 +26,12 @@ typedef struct
 	bool reloadImage;
 
 }VideoLoadData;
+
+class VideoLoad
+{
+public:
+	VideoLoad();
+	~VideoLoad();
+	
+	void init(const vector<string>& VideoPath, int OneBufferNum = 10);
+	bool LoadVideoFirst();
