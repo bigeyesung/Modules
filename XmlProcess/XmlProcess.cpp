@@ -144,3 +144,23 @@ bool XmlProcess::GetData(vector<vector<joints>>& inData)
 		DataExist[i] = m_Xml->getNodesNum({ TypeName, TypeName1, TypeName2 }, PointNum);
 		inData[i].clear();
 		inData[i].resize(PointNum);
+        if (PointNum == inData[i].size())
+		{
+			for (int j = 0; j < inData[i].size(); j++)
+			{
+				TypeName3 = "P" + to_string(j);
+				m_Xml->getAttrValue({ TypeName, TypeName1, TypeName2, TypeName3 }, "x", tempD);
+				inData[i][j].final.x = tempD;
+				m_Xml->getAttrValue({ TypeName, TypeName1, TypeName2, TypeName3 }, "y", tempD);
+				inData[i][j].final.y = tempD;
+			}
+		}
+		else
+		{
+			DataExist[i] = false;
+			tempB = false;
+			break;
+		}
+	}
+	return tempB;
+}
