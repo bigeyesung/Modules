@@ -21,3 +21,13 @@ VideoLoad::~VideoLoad()
 		}
 	}
 }
+
+void VideoLoad::init(const vector<string>& VideoPath, int OneBufferNum)
+{
+	bool tempB = true;
+	string tempS = VideoPath[0];
+	for (int i = 1; i < VideoPath.size(); i++)
+	{
+		if (tempS != VideoPath[i] && VideoPath[i] != "")
+			tempB = false;
+	}
