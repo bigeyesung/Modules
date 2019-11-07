@@ -44,3 +44,11 @@ public:
 
 	void init(bool broadcast, int32_t iPort, std::string strHost);
 	void update();
+    void setNumber(int value)
+	{
+		mReceive = to_string(value);
+	}
+	int getNumber()
+	{
+		return atoi(mReceive.c_str());
+	}
