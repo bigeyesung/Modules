@@ -112,3 +112,24 @@ bool VideoLoad::LoadVideoFirst()
 			}
 			if (!m_VideoLoad[k].imageMat2.empty())
 				m_VideoLoad[k].imageMat2.clear();
+            for (int i = 0; i < m_BufferNum; i++)
+			{
+				cv::Mat tempFrame;				
+				if (m_VideoLoad[k].VideoCap.read(tempFrame))
+				{
+					m_VideoLoad[k].imageMat2.push_back(tempFrame);
+					m_VideoLoad[k].currentFrame++;
+				}
+			}
+			//if (VideoTextureArray[k] == NULL)
+			{
+				VideoTextureArray[k] = gl::Texture::create((unsigned char*)m_VideoLoad[k].imageMat1[0].data, GL_BGR,
+					m_VideoLoad[k].imageMat1[0].cols, m_VideoLoad[k].imageMat1[0].rows);
+				if(m_VideoLoad.size() == 1)
+					VideoTextureArray[k]->bind(0);
+				else
+					VideoTextureArray[k]->bind(k + 1);
+				//pbo creat
+				PboArray[k].creat(m_VideoLoad[k].imageMat1[0].cols, m_VideoLoad[k].imageMat1[0].rows);
+			}
+		}
