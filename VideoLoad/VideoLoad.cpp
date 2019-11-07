@@ -252,3 +252,24 @@ void VideoLoad::LoadingVideo()
 		}
 	}
 }
+
+void VideoLoad::ReloadVideo()
+{
+	//��Ū�v��thread����
+	//CurrentLoadBuffer = -1;
+
+	for (int k = 0; k < m_VideoLoad.size(); k++)
+	{
+		m_VideoLoad[k].VideoCap.set(CAP_PROP_POS_FRAMES, 0);
+		m_VideoLoad[k].currentFrame = 0;
+		for (int i = 0; i < m_BufferNum; i++)
+		{
+			cv::Mat tempFrame;
+			while (!m_VideoLoad[k].VideoCap.read(m_VideoLoad[k].imageMat1[i]))
+			{
+				console() << "Reload Error "<< endl;
+			}
+
+			//m_VideoLoad[k].mediaCapture->readFrame(m_VideoLoad[k].vpxImage1[i]);
+			m_VideoLoad[k].currentFrame++;
+		}
