@@ -35,3 +35,12 @@ void XmlProcess::ReadXml(const string& FilePath)
 
 		XmlExist = false;
 	}
+    else
+	{
+		XmlExist = true;
+	}
+
+	//����
+	//XmlExist = true;
+	CanSave = true;
+}
