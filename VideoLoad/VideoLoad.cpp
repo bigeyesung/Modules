@@ -310,3 +310,13 @@ void VideoLoad::BindVideoTexture(int frameIdx)
 			isReload = true;
 		}
 	}
+    else if (m_iPreviousFrameIdx != frameIdx)
+	{
+		CurrentBindBuffer = int(frameIdx / m_BufferNum) % 2;
+		m_iCurrentBindImgIdx = frameIdx % m_BufferNum;
+		//if(frameIdx - m_iPreviousFrameIdx != 1) console() << "frame " << frameIdx << endl;
+		isReload = false;
+		switch (CurrentBindBuffer)
+		{
+		case 0:
+		{
