@@ -97,3 +97,18 @@ bool VideoLoad::LoadVideoFirst()
 				break;
 				//return false;
 			}
+            m_VideoLoad[k].TotalFrame = m_VideoLoad[k].VideoCap.get(CV_CAP_PROP_FRAME_COUNT);
+			//m_VideoLoad[k].TotalFrame = m_VideoLoad[k].mediaCapture->getFrameCount();
+			if (!m_VideoLoad[k].imageMat1.empty())
+				m_VideoLoad[k].imageMat1.clear();
+			for (int i = 0; i < m_BufferNum; i++)
+			{
+				cv::Mat tempFrame;				
+				if (m_VideoLoad[k].VideoCap.read(tempFrame))
+				{
+					m_VideoLoad[k].imageMat1.push_back(tempFrame);
+					m_VideoLoad[k].currentFrame++;
+				}
+			}
+			if (!m_VideoLoad[k].imageMat2.empty())
+				m_VideoLoad[k].imageMat2.clear();
