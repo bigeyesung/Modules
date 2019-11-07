@@ -228,3 +228,25 @@ bool XmlProcess::GetData(vector<s_ShaderSetData> & inData)
 			}
 		}
 	}
+    if (!tempB)
+	{
+		//TypeName = "ProjectorData";
+		//m_Xml->getNodesNum({ TypeName }, ProDataNum);
+		//inData.resize(ProDataNum);
+		for (int i = 0; i < inData.size(); i++)
+		{
+			if (!DataExist[i])
+			{
+				inData[i].BlendingGamma = 2;
+				inData[i].ColorBright = 1;
+				inData[i].MaskWork = false;
+				inData[i].TextureBindIdx = 0;
+				inData[i].MaskBindIdx = inData.size();
+				inData[i].UV_RL = vec2(1, 0);
+				inData[i].UV_UD = vec2(1, 0);
+				inData[i].OverLapB = vec4(0, 0, 0, 0);
+			}
+		}
+	}
+	return tempB;
+}
