@@ -86,3 +86,24 @@ bool XmlProcess::GetData(s_InitData & inData)
 
 		return true;
 	}
+    else
+	{
+		inData.DisplayNum = ci::Display::getDisplays().size();
+		inData.WindowsOffset = 0;		
+		//inData.DisplayNum = 1;
+		//inData.WindowsOffset = 1;
+		inData.WindowsWidth = 1920;
+		inData.WindowsHigh = 1080;
+		inData.m_aliquots_w = 32;
+		inData.m_aliquots_h = 25;
+		inData.OverWidth = 4;
+		inData.OverHigh = 0;
+		inData.OverWidthP = inData.OverWidth / (inData.m_aliquots_w + 1);
+		inData.OverHighP = inData.OverHigh / (inData.m_aliquots_h + 1);
+		inData.WorldWidth = 100;
+		inData.WorldHigh = 70;
+		inData.VideoName.resize(inData.DisplayNum);
+		for (int i = 0; i < inData.VideoName.size(); i++)
+		{
+			inData.VideoName[i] = "NoVideo";
+		}
