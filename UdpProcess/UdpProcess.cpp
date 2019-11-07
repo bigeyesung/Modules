@@ -26,3 +26,21 @@ void UdpProcess::init(bool broadcast, int32_t iPort, std::string strHost)
 	mClient->connectErrorEventHandler(&UdpProcess::onError, this);
 	if (!broadcast)
 	{
+    	mClient->connectConnectEventHandler( &UdpProcess::onConnect, this );
+		//mClient->connectResolveEventHandler( [ & ]() 
+		//{
+		//	mText.push_back( "Endpoint resolved" );
+		//} );
+		mClient->connectResolveEventHandler(&UdpProcess::onResolve, this);
+
+		//Connect to certain server
+		//mText.push_back("Connecting to: " + mHost + ":" + to_string(mPort));
+		mClient->connect(mHost, (uint16_t)mPort);
+	}
+	else
+	{
+		//Receive Broadcast message
+		onConnectBroadcast(mPort);
+	}
+	
+}
