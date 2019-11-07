@@ -38,3 +38,10 @@ public:
 	void HandleReceive(const boost::system::error_code& error,std::size_t bytes_transferred);
 	void handleSend(std::shared_ptr<std::string> message, const boost::system::error_code& ec, std::size_t bytes_transferred);
 	void AsynUpdate();
+	std::vector<std::string>ipaddrs;  //Save local adapters ip adddress
+	std::string getServerIP();
+	bool is_serverip;
+	bool Is_timeout(const int& duration, const ptime& starttime, const int& countclient);
+	void SetTotalClient(const int& num);
+	
+};
