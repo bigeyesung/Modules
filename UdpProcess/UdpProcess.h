@@ -60,3 +60,4 @@ private:
 	std::string					mRequest;
 	UdpSessionRef				mSession;
 	std::string                 mReceive;
+
