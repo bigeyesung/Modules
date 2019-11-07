@@ -118,3 +118,8 @@ bool UDPBroadcastClient::Is_timeout(const int & duration, const ptime & starttim
 		return true;
 	}
 }
+
+void UDPBroadcastClient::SetTotalClient(const int& num)
+{
+	totalclient = num;
+}
