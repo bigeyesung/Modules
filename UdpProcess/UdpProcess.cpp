@@ -101,3 +101,9 @@ void UdpProcess::onRead(ci::BufferRef buffer)
 	// methods for converting between std::string and ci::Buffer.
 	mReceive.clear();
 	mReceive = UdpSession::bufferToString(buffer);
+    //ci::app::console() << mReceive.c_str() << std::endl;
+	//mText.push_back(response);
+
+	// Continue reading.
+	mSession->read();
+}
