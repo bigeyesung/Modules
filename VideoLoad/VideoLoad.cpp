@@ -55,3 +55,9 @@ void VideoLoad::init(const vector<string>& VideoPath, int OneBufferNum)
 	m_iPrevBindBufIdx = 0;
 	isReload = true;
 }
+
+void VideoLoad::InitThread()
+{
+	if (Video_Th == NULL)
+		Video_Th = new thread(&VideoLoad::LoadingVideo, this);
+}
