@@ -47,3 +47,11 @@ void VideoLoad::init(const vector<string>& VideoPath, int OneBufferNum)
 		m_VideoLoad[i].keepLoading = true;
 		m_VideoLoad[i].reloadImage = false;
 	}
+    CurrentLoadBuffer = -1;
+	m_BufferNum = OneBufferNum;
+	CurrentBindBuffer = 0;
+	m_iPreviousFrameIdx = -1;
+	m_iCurrentBindImgIdx = 0;
+	m_iPrevBindBufIdx = 0;
+	isReload = true;
+}
