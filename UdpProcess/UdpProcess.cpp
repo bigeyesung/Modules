@@ -128,3 +128,13 @@ void UdpProcess::onConnectBroadcast(int32_t iPort)
 
 	mSession->read();
 }
+
+void UdpProcess::write()
+{
+	// This sample is meant to work with only one session at a time.
+	if ( mSession && mSession->getSocket()->is_open() ) {
+		// Write data is packaged as a ci::Buffer. This allows 
+		// you to send any kind of data. Because it's more common to
+		// work with strings, the session object has static convenience 
+		// methods for converting between std::string and ci::Buffer.
+		mSession->write( UdpSession::stringToBuffer( mRequest ) );
