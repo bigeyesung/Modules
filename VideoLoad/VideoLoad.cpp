@@ -399,3 +399,11 @@ void VideoLoad::BindVideoTexture(int frameIdx)
 		m_iPreviousFrameIdx = frameIdx;
 	}
 }
+
+void VideoLoad::UnbindVideoTexture()
+{
+	//for (int i = 0; i < VideoTextureArray.size(); i++)
+	//{
+	//	VideoTextureArray[i]->unbind();
+	//}
+}
