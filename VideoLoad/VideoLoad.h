@@ -21,3 +21,8 @@ typedef struct
 	vector<cv::Mat> imageMat1, imageMat2;
 
 	long unsigned TotalFrame;
+    long unsigned currentFrame;
+	bool keepLoading;
+	bool reloadImage;
+
+}VideoLoadData;
