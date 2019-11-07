@@ -20,3 +20,13 @@ public:
 	{
 		m_ioService = std::shared_ptr<asio::io_service>(new asio::io_service());
 	}
+    virtual ~ioserviceManager()
+	{
+		cinder::app::console() << "deconstruct ioservice" << std::endl;
+		m_ioService->stop();
+	}
+
+	void updateIoService()
+	{
+		m_ioService->poll();
+	}
