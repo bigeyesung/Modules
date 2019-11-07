@@ -76,3 +76,10 @@ void UdpProcess::onError( string err, size_t bytesTransferred )
 	 //mText.push_back( text );
 	//ci::app::console() << text.c_str() << std::endl;
 }
+
+void UdpProcess::onWrite( size_t bytesTransferred )
+{
+	string writeMsg = to_string(bytesTransferred) + " bytes written";
+	//mText.push_back( to_string( bytesTransferred ) + " bytes written" );
+	ci::app::console() << writeMsg.c_str() << std::endl;
+}
