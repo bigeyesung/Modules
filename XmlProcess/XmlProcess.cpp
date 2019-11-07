@@ -5,3 +5,7 @@ XmlProcess::XmlProcess()
 	XmlExist = false;
 	m_Xml = NULL;
 }
+XmlProcess::~XmlProcess()
+{
+	CloseXml();
+}
