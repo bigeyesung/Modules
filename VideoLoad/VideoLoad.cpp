@@ -175,3 +175,27 @@ void VideoLoad::LoadingVideo()
 						//m_bReload = true;
 						LIj = m_BufferNum;
 					}
+                    if (m_VideoLoad[i].keepLoading)
+					{
+						//�T�O����s�e��
+						m_VideoLoad[i].imageMat1[LIj].release();
+						do
+						{
+							m_VideoLoad[i].VideoCap.read(m_VideoLoad[i].imageMat1[LIj]);
+						} while (m_VideoLoad[i].imageMat1[LIj].empty());
+
+						//while (!m_VideoLoad[i].VideoCap.read(m_VideoLoad[i].imageMat1[LIj]))
+						//{
+						//	//LIj = m_BufferNum;
+						//}
+						//else
+						{
+							m_VideoLoad[i].currentFrame++;
+							//console() << "Buffer1 load: " << m_VideoLoad[i].currentFrame << endl;
+						}					
+					}
+				}
+			}
+			CurrentLoadBuffer = -1;
+		}
+		break;
