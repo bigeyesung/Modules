@@ -29,3 +29,12 @@ private:
 	boost::asio::ip::udp::endpoint sender_endpoint;
 
 	int ReceiveNum;
+public:
+	UDPBroadcastClient(const int& listenport);
+	~UDPBroadcastClient();
+	void OpenSocket(int port);
+	void CloseSocket();
+	void Listen();
+	void HandleReceive(const boost::system::error_code& error,std::size_t bytes_transferred);
+	void handleSend(std::shared_ptr<std::string> message, const boost::system::error_code& ec, std::size_t bytes_transferred);
+	void AsynUpdate();
