@@ -15,3 +15,11 @@ public:
 	bool GetData(vector<s_ShaderSetData>& inData);
 	
 	void CloseXml();	
+
+private:
+
+	bool CanSave;
+	bool XmlExist;
+
+	XmlParser* m_Xml;
+};
