@@ -107,3 +107,12 @@ void UdpProcess::onRead(ci::BufferRef buffer)
 	// Continue reading.
 	mSession->read();
 }
+
+void UdpProcess::onReadComplete()
+{
+	//mText.push_back("Read complete");
+	//ci::app::console() << "Read complete" << std::endl;
+
+	// Continue reading new responses.
+	mSession->read();
+}
