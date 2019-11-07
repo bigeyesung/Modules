@@ -273,3 +273,21 @@ void VideoLoad::ReloadVideo()
 			//m_VideoLoad[k].mediaCapture->readFrame(m_VideoLoad[k].vpxImage1[i]);
 			m_VideoLoad[k].currentFrame++;
 		}
+        for (int i = 0; i < m_BufferNum; i++)
+		{
+			cv::Mat tempFrame;
+			while (!m_VideoLoad[k].VideoCap.read(m_VideoLoad[k].imageMat2[i]))
+			{
+				console() << "Reload Error " << endl;
+			}
+
+			//m_VideoLoad[k].mediaCapture->readFrame(m_VideoLoad[k].vpxImage2[i]);
+			m_VideoLoad[k].currentFrame++;
+		}
+	}
+
+	CurrentBindBuffer = 0;
+	CurrentLoadBuffer = -1;
+	m_iPreviousFrameIdx = -1;
+	m_iCurrentBindImgIdx = 0;
+	m_iPrevBindBufIdx = 0;
