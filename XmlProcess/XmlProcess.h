@@ -2,3 +2,9 @@
 #include "../3rdParty/XmlParser/XmlParser.h"
 #include "../include/ClientConst.h"
 #include "../include/ProjectionConst.h"
+class XmlProcess
+{
+public:
+
+	XmlProcess();
+	~XmlProcess();
