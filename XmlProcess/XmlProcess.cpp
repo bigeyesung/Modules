@@ -107,3 +107,17 @@ bool XmlProcess::GetData(s_InitData & inData)
 		{
 			inData.VideoName[i] = "NoVideo";
 		}
+
+        inData.OperatingMode = OperatingMode_Client;
+		//inData.ServerIP = "127.0.0.1";
+		//inData.TCPport = 1000;
+		inData.FluorescentPoint = false;
+		inData.WallIntact = true;
+		inData.CaptureChangeType = 0;
+		inData.CameraRotaType = 0;
+		inData.BlendPhase = 0;
+		//�w�]���| �ɦW
+		//inData.FilePath=
+		return false;
+	}
+}
