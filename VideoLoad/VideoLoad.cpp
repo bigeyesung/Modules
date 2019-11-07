@@ -15,3 +15,9 @@ VideoLoad::~VideoLoad()
 		{
 			m_VideoLoad[i].imageMat1[j].release();
 		}
+        for (int j = 0; j < m_VideoLoad[i].imageMat2.size(); j++)
+		{
+			m_VideoLoad[i].imageMat2[j].release();
+		}
+	}
+}
