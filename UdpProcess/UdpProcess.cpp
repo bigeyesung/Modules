@@ -49,3 +49,11 @@ void UdpProcess::update()
 {
 	ioserviceManager::updateIoService();
 }
+
+void UdpProcess::onConnect( UdpSessionRef session )
+{
+	//mText.push_back( "Connected" );
+	//ci::app::console() << "Connected" << std::endl;
+
+	// Get the session from the argument and set callbacks.
+	// Note that you can use lambdas.
