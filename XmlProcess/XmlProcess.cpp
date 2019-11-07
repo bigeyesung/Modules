@@ -44,3 +44,20 @@ void XmlProcess::ReadXml(const string& FilePath)
 	//XmlExist = true;
 	CanSave = true;
 }
+
+bool XmlProcess::GetData(s_InitData & inData)
+{
+	if (XmlExist)
+	{
+		string TypeName, TypeName1;
+		int tempInt;
+		TypeName = "InitData";
+
+		m_Xml->getNodeValue({ TypeName ,"ProjectorNum" }, inData.DisplayNum);
+		m_Xml->getNodeValue({ TypeName ,"WindowsOffset" }, inData.WindowsOffset);
+		m_Xml->getAttrValue({ TypeName ,"WindowsSize" }, "Width", inData.WindowsWidth);
+		m_Xml->getAttrValue({ TypeName ,"WindowsSize" }, "High", inData.WindowsHigh);
+		m_Xml->getAttrValue({ TypeName ,"PointNum" }, "Width", inData.m_aliquots_w);
+		inData.m_aliquots_w--;
+		m_Xml->getAttrValue({ TypeName ,"PointNum" }, "High", inData.m_aliquots_h);
+		inData.m_aliquots_h--;
