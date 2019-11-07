@@ -63,3 +63,25 @@ void UDPBroadcastClient::HandleReceive(const boost::system::error_code& error,
 		debugF.CinderConsoleNextLine(ServerIP);
 		ReceiveNum++;
 	}
+    if (ServerIP != "None")
+	 is_serverip = true;
+	
+	io_service_.reset();
+
+	//Send confirmed mes to server
+	//auto message = std::make_shared<std::string>(ServerIP + "@" + boost::asio::ip::host_name());
+	//udp::resolver resolver(io_service_);
+	//udp::resolver::query query(udp::v4(), ServerIP, "7029");
+	//udp::resolver::iterator iter = resolver.resolve(query);
+	//udp::endpoint remote_endpoint = *iter;
+
+	//	_socket.async_send_to(boost::asio::buffer(*message), remote_endpoint,
+	//		boost::bind(&UDPBroadcastClient::handleSend, this, message,
+	//			boost::asio::placeholders::error,
+	//			boost::asio::placeholders::bytes_transferred));
+
+
+
+
+
+}
