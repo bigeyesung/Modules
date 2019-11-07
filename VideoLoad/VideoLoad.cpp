@@ -242,3 +242,13 @@ void VideoLoad::LoadingVideo()
 			CurrentLoadBuffer = -1;
 		}
 		break;
+        case 2:
+		{
+			CurrentLoadBuffer = -1;
+			break;
+		}
+		default:
+			break;
+		}
+	}
+}
