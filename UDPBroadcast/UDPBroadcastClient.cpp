@@ -104,3 +104,17 @@ bool UDPBroadcastClient::Is_timeout(const int & duration, const ptime & starttim
 		//qDebug() << "30";
 		return true;
 	}
+    //no longer than 20 sec
+	time_duration diff = second_clock::local_time() - starttime;
+	if (diff.total_seconds() < duration) 
+	{
+		diff = second_clock::local_time() - starttime;
+		//std::cout << "not yet" << std::endl;
+		return false;
+	}
+	else
+	{
+		//std::cout << "timeout" << std::endl;
+		return true;
+	}
+}
