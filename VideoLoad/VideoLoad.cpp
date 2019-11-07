@@ -81,3 +81,19 @@ void VideoLoad::ReleaseVideo()
 	}
 	m_VideoLoad.clear();
 }
+
+bool VideoLoad::LoadVideoFirst()
+{
+	if (Video_Th == NULL)
+	{
+		int FailedIndex = -1;
+		for (int k = 0; k < m_VideoLoad.size(); k++)
+		{
+			if (!m_VideoLoad[k].VideoCap.isOpened())
+			//if (!m_VideoLoad[k].mediaCapture->isOpened())
+			{
+				console() << "Video Open Failed" << endl;
+				FailedIndex = k;
+				break;
+				//return false;
+			}
