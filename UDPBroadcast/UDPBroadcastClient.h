@@ -17,3 +17,15 @@
 #pragma once
 #pragma comment(lib, "IPHLPAPI.lib")
 using namespace boost::posix_time;
+
+class UDPBroadcastClient
+{
+private:
+	std::string ServerIP;
+	int totalclient;
+	boost::asio::io_service io_service_;
+	boost::asio::ip::udp::socket _socket;
+	boost::array<char, 1024> buffer;
+	boost::asio::ip::udp::endpoint sender_endpoint;
+
+	int ReceiveNum;
