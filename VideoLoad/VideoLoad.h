@@ -13,3 +13,11 @@ using namespace ci;
 
 using namespace std;
 using namespace cv;
+
+typedef struct
+{
+	cv::VideoCapture VideoCap;
+	
+	vector<cv::Mat> imageMat1, imageMat2;
+
+	long unsigned TotalFrame;
